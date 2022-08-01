@@ -74,7 +74,9 @@ class ModsMenuState extends MusicBeatState
 		Paths.clearUnusedMemory();
 		WeekData.setDirectoryFromWeek();
 
-		public var txt1:String = "";
+		var txt1:String = "";
+		var txt2:String = "";
+		var txt3:String = "";
 
 		switch(ClientPrefs.languageName)
 		{
