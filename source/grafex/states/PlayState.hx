@@ -387,6 +387,10 @@ class PlayState extends MusicBeatState
 
 	var maxHealthProb:Float;
 
+	var txt1:String = "";
+	var txt2:String = "";
+	var txt3:String = "";
+
 	override public function create()
 	{
 		instance = this;
@@ -1420,6 +1424,18 @@ class PlayState extends MusicBeatState
 
 		reloadHealthBarColors();
 		
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				txt1 = "";
+				txt2 = 'Max Combo: ${maxCombo}\nSicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nAverage: ${Math.round(averageMs)}ms \nHealth: ${Std.string(Math.floor(Std.parseFloat(Std.string((maxHealthProb) / 2))))} %\n game not read that text';
+				txt3 = "";
+			case "Russian":
+				txt1 = "";
+				txt2 = 'Макс. комбо: ${maxCombo}\nКруто: ${sicks}\nХорошо: ${goods}\nПлохо: ${bads}\nГовно: ${shits}\nТочность: ${Math.round(averageMs)}мс \nЖизнь: ${Std.string(Math.floor(Std.parseFloat(Std.string((maxHealthProb) / 2))))} %\n game not read that text';
+				txt3 = "";
+		}
+
         songTxt = new FlxText(12, healthBarBG.y + 50, 0, SONG.song + " (" + storyDifficultyText + ")", 18);
 		songTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT);
 		songTxt.setBorderStyle(OUTLINE, FlxColor.BLACK, 1.1);
@@ -1446,7 +1462,7 @@ class PlayState extends MusicBeatState
 		judgementCounter.scrollFactor.set();
 		judgementCounter.cameras = [camHUD];
 		judgementCounter.screenCenter(Y);
-		judgementCounter.text = 'Max Combo: ${maxCombo}\nSicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nAverage: ${Math.round(averageMs)}ms \nHealth: ${Std.string(Math.floor(Std.parseFloat(Std.string((maxHealthProb) / 2))))} %\n game not read that text';
+		judgementCounter.text = txt2;
         if(ClientPrefs.showjud) 
         judgementCounter.visible = !ClientPrefs.hideHud;
         else
