@@ -215,6 +215,16 @@ class FreeplayState extends MusicBeatState
 		text.scrollFactor.set();
 		add(text);
 		super.create();
+
+		var txt1:String = "";
+
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				txt1 = "PERSONAL BEST: ";
+			case "Russian":
+				txt1 = "ПЕРСОНАЛЬНЫЙ РЕКОРД: ";
+		}
 	}
 
 	override function closeSubState() {
@@ -279,7 +289,7 @@ class FreeplayState extends MusicBeatState
 			ratingSplit[1] += '0';
 		}
 
-		scoreText.text = 'PERSONAL BEST: ' + lerpScore + ' (' + ratingSplit.join('.') + '%)';
+		scoreText.text = txt1 + lerpScore + ' (' + ratingSplit.join('.') + '%)';
 		positionHighscore();
 
 		FlxG.camera.zoom = FlxMath.lerp(1, FlxG.camera.zoom, Utils.boundTo(1 - (elapsed * 3.125), 0, 1));
