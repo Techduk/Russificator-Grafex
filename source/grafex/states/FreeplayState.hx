@@ -59,6 +59,8 @@ class FreeplayState extends MusicBeatState
 	var intendedColor:Int;
 	var colorTween:FlxTween;
 
+	var txt1:String = "";
+
 	override function create()
 	{
 		Paths.clearStoredMemory();
@@ -215,8 +217,6 @@ class FreeplayState extends MusicBeatState
 		text.scrollFactor.set();
 		add(text);
 		super.create();
-
-		var txt1:String = "";
 
 		switch(ClientPrefs.languageName)
 		{
