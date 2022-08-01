@@ -85,7 +85,13 @@ class MainMenuState extends MusicBeatState
         FlxG.mouse.visible = false;
         //FlxG.mouse.useSystemCursor = true;
 
-		Application.current.window.title = Main.appTitle + ' - Main Menu';
+		//switch(ClientPrefs.languageName)
+		//{
+		//	case 'English':
+				Application.current.window.title = Main.appTitle + ' - Main Menu';
+		//	case 'Russian':
+			//	Application.current.window.title = Main.appTitle + ' - Главное Меню';
+		//}
 		
 		camGame = new FlxCamera();
 

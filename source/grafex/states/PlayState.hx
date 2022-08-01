@@ -1176,6 +1176,14 @@ class PlayState extends MusicBeatState
 		doof.nextDialogueThing = startNextDialogue;
 		doof.skipDialogueThing = skipDialogue;
 
+		var doofRus:DialogueBox = new DialogueBox(false, dialogueRus);
+		// doof.x += 70;
+		// doof.y = FlxG.height * 0.5;
+		doofRus.scrollFactor.set();
+		doofRus.finishThing = startCountdown;
+		doofRus.nextDialogueThing = startNextDialogue;
+		doofRus.skipDialogueThing = skipDialogue;
+
 		Conductor.songPosition = -5000;
 
 		strumLine = new FlxSprite(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, 50).makeGraphic(FlxG.width, 10);
@@ -1603,7 +1611,13 @@ class PlayState extends MusicBeatState
 					});
 				case 'senpai' | 'roses' | 'thorns':
 					if(daSong == 'roses') FlxG.sound.play(Paths.sound('ANGRY'));
-					schoolIntro(doof);
+					switch(ClientPrefs.languageName)
+					{
+						case 'English':
+							schoolIntro(doof);
+						case "Russian":
+							schoolIntro(doofRus);
+					}
                 case 'ugh' | 'guns' | 'stress':
 					tankIntro();
 
@@ -3211,13 +3225,28 @@ class PlayState extends MusicBeatState
 
 		//healthThing.text = "Health: " + Std.string(Math.floor(Std.parseFloat(Std.string((maxHealthProb) / 2)))) + '%';
 
-		scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName;
-		judgementCounter.text = txt1;
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName;
+				judgementCounter.text = 'Max Combo: ${maxCombo}\nSicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nAverage: ${Math.round(averageMs)}ms \nHealth: ${Std.string(Math.floor(Std.parseFloat(Std.string((maxHealthProb) / 2))))} %\n game not read that text';
+			case "Russian":
+				scoreTxt.text = 'Счёт: ' + songScore + ' | Ошибка: ' + songMisses + ' | Рейтинг: ' + ratingName;
+				judgementCounter.text = 'Макс. комбо: ${maxCombo}\nКруто: ${sicks}\nХорошо: ${goods}\nПлохо: ${bads}\nДерьмо: ${shits}\nТочность: ${Math.round(averageMs)}мс \nЖизнь: ${Std.string(Math.floor(Std.parseFloat(Std.string((maxHealthProb) / 2))))} %\n похуй игра не читает этот текст'; 
+		}
 		if(ratingName != '?')	
 		{
-			scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName + ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)' + ' - ' + ratingFC;//peeps wanted no integer rating
-			judgementCounter.text = txt1;
-        }
+			switch(ClientPrefs.languageName)
+			{
+				case 'English':
+					scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName;
+					judgementCounter.text = 'Max Combo: ${maxCombo}\nSicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nAverage: ${Math.round(averageMs)}ms \nHealth: ${Std.string(Math.floor(Std.parseFloat(Std.string((maxHealthProb) / 2))))} %\n game not read that text';
+				case "Russian":
+					scoreTxt.text = 'Счёт: ' + songScore + ' | Ошибка: ' + songMisses + ' | Рейтинг: ' + ratingName;
+					judgementCounter.text = 'Макс. комбо: ${maxCombo}\nКруто: ${sicks}\nХорошо: ${goods}\nПлохо: ${bads}\nДерьмо: ${shits}\nТочность: ${Math.round(averageMs)}мс \nЖизнь: ${Std.string(Math.floor(Std.parseFloat(Std.string((maxHealthProb) / 2))))} %\n похуй игра не читает этот текст'; 
+			}
+		}
+
 
 		if(botplayTxt.visible) {
 			botplaySine += 180 * elapsed;
@@ -5471,7 +5500,13 @@ class PlayState extends MusicBeatState
 			    switch (ClientPrefs.ratingSystem)
 			    {
 				case "Psych":
-					ratings = RatingsData.psychRatings;
+					switch(ClientPrefs.languageName)
+					{
+						case 'English':
+							ratings = RatingsData.psychRatings;
+						case 'Russian':
+							ratings = RatingsData.psychRatingRus;
+					}
 				// GO CHECK FOREVER ENGINE OUT!! https://github.com/Yoshubs/Forever-Engine-Legacy
 				case "Forever":
 					ratings = RatingsData.foreverRatings;
@@ -5590,6 +5625,7 @@ class PlayState extends MusicBeatState
 	{
 		var string:String = '';
 		var data:String = 'qwertyuiopasdfghjklzxcvbnm1234567890QWERTYUIOPASDFGHJKLZXCVBNM';
+		//var dataRus:String = 'йцукенгшщзхъфывапролджэячсмитьбю1234567890ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ';
 		for (i in 0...length)
 		{
 			string += data.charAt(FlxG.random.int(0, data.length - 1));
@@ -5802,6 +5838,7 @@ class PlayState extends MusicBeatState
 	}
 
 	var dialogue:Array<String> = ['blah blah blah', 'coolswag'];
+	var dialogueRus:Array<String> = ['Бля бля бля', 'соси жопу'];
 	var dialogueJson:DialogueFile = null;
 
 	var cutsceneJson:CutsceneFile = null;
@@ -5829,6 +5866,11 @@ class PlayState extends MusicBeatState
 		var file:String = Paths.txt(songName + '/' + songName + 'Dialogue'); //Checks for vanilla/Senpai dialogue
 		if (OpenFlAssets.exists(file)) {
 			dialogue = Utils.coolTextFile(file);
+		}
+
+		var fileRus:String = Paths.txt(songName + '/' + songName + 'DialogueRus'); //Checks for vanilla/Senpai dialogue
+		if (OpenFlAssets.exists(fileRus)) {
+			dialogueRus = Utils.coolTextFile(fileRus);
 		}
 	}
 

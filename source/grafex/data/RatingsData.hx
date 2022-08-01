@@ -59,6 +59,19 @@ class RatingsData
 		['Perfect!!', 1] //100%
 	];
 
+	public static var psychRatingRus:Array<Dynamic> = [
+		['Ты сосешь!', 0.2], //From 0% to 19%
+		['Дерьмово', 0.4], //From 20% to 39%
+		['Плохо', 0.5], //From 40% to 49%
+		['Брух', 0.6], //From 50% to 59%
+		['Бе', 0.69], //From 60% to 68%
+		['Найс', 0.7], //69%
+		['Хорошо', 0.8], //From 70% to 79%
+		['Здорово', 0.9], //From 80% to 89%
+		['Отлично!', 1], //From 90% to 99%
+		['ИДЕАЛЬНО!!', 1] //100%
+	];
+
 	public static var accurateRatings:Array<Dynamic> = [
 		["D", 0.401], // 40%
 		["C", 0.6], // 59%
