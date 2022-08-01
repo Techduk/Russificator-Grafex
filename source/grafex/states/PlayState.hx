@@ -388,8 +388,6 @@ class PlayState extends MusicBeatState
 	var maxHealthProb:Float;
 
 	var txt1:String = "";
-	var txt2:String = "";
-	var txt3:String = "";
 
 	override public function create()
 	{
@@ -1427,13 +1425,9 @@ class PlayState extends MusicBeatState
 		switch(ClientPrefs.languageName)
 		{
 			case 'English':
-				txt1 = "";
-				txt2 = 'Max Combo: ${maxCombo}\nSicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nAverage: ${Math.round(averageMs)}ms \nHealth: ${Std.string(Math.floor(Std.parseFloat(Std.string((maxHealthProb) / 2))))} %\n game not read that text';
-				txt3 = "";
+				txt1 = 'Max Combo: ${maxCombo}\nSicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nAverage: ${Math.round(averageMs)}ms \nHealth: ${Std.string(Math.floor(Std.parseFloat(Std.string((maxHealthProb) / 2))))} %\n game not read that text';
 			case "Russian":
-				txt1 = "";
-				txt2 = 'Макс. комбо: ${maxCombo}\nКруто: ${sicks}\nХорошо: ${goods}\nПлохо: ${bads}\nГовно: ${shits}\nТочность: ${Math.round(averageMs)}мс \nЖизнь: ${Std.string(Math.floor(Std.parseFloat(Std.string((maxHealthProb) / 2))))} %\n game not read that text';
-				txt3 = "";
+				txt1 = 'Макс. комбо: ${maxCombo}\nКруто: ${sicks}\nХорошо: ${goods}\nПлохо: ${bads}\nГовно: ${shits}\nТочность: ${Math.round(averageMs)}мс \nЖизнь: ${Std.string(Math.floor(Std.parseFloat(Std.string((maxHealthProb) / 2))))} %\n похуй игра не читает этот текст'; 
 		}
 
         songTxt = new FlxText(12, healthBarBG.y + 50, 0, SONG.song + " (" + storyDifficultyText + ")", 18);
@@ -1462,7 +1456,7 @@ class PlayState extends MusicBeatState
 		judgementCounter.scrollFactor.set();
 		judgementCounter.cameras = [camHUD];
 		judgementCounter.screenCenter(Y);
-		judgementCounter.text = txt2;
+		judgementCounter.text = txt1;
         if(ClientPrefs.showjud) 
         judgementCounter.visible = !ClientPrefs.hideHud;
         else
@@ -3218,11 +3212,11 @@ class PlayState extends MusicBeatState
 		//healthThing.text = "Health: " + Std.string(Math.floor(Std.parseFloat(Std.string((maxHealthProb) / 2)))) + '%';
 
 		scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName;
-		judgementCounter.text = 'Max Combo: ${maxCombo}\nSicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nAverage: ${Math.round(averageMs)}ms \nHealth: ${Std.string(Math.floor(Std.parseFloat(Std.string((maxHealthProb) / 2))))} %\n game not read that text';
+		judgementCounter.text = txt1;
 		if(ratingName != '?')	
 		{
 			scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName + ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)' + ' - ' + ratingFC;//peeps wanted no integer rating
-			judgementCounter.text = 'Max Combo: ${maxCombo}\nSicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nAverage: ${Math.round(averageMs)}ms \nHealth: ${Std.string(Math.floor(Std.parseFloat(Std.string((maxHealthProb) / 2))))} %\n game not read that text';
+			judgementCounter.text = txt1;
         }
 
 		if(botplayTxt.visible) {
