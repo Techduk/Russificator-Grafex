@@ -18,7 +18,18 @@ class OptionsHelpers
     public static var TimeBarArray = ['Time Left', 'Time Elapsed', 'Disabled'];
     public static var ColorBlindArray = ['None', 'Deuteranopia', 'Protanopia', 'Tritanopia'];
     public static var AccuracyTypeArray = ['Grafex', 'Kade', 'Mania', 'Andromeda', 'Forever', 'Psych'];
+    public static var languageNames = ['English', 'Russian'];
     
+    public static function getLanguageByID(id:Int)
+    {
+        return languageNames[id];
+    }
+    
+    static public function ChangeLanguage(id:Int)
+    {
+        ClientPrefs.languageName = getLanguageByID(id);
+    }
+
 	public static function getNoteskinByID(id:Int)
 	{
 		return noteskinArray[id];

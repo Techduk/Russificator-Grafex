@@ -1846,3 +1846,37 @@ class VintageOption extends Option
 		return "Vintage: < " + (ClientPrefs.vintageOnGame ? "Enabled" : "Disabled") + " >";
 	}
 }
+class ChangeLanguage extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function left():Bool
+	{
+		ClientPrefs.languageNameNum--;
+		if (ClientPrefs.languageNameNum < 0)
+		ClientPrefs.languageNameNum = OptionsHelpers.languageNames.length - 1;
+     OptionsHelpers.ChangeLanguage(ClientPrefs.languageNameNum);
+		display = updateDisplay();
+		return true;
+	}
+
+	public override function right():Bool
+	{
+		ClientPrefs.languageNameNum++;
+		if (ClientPrefs.languageNameNum > OptionsHelpers.languageNames.length - 1)
+			ClientPrefs.languageNameNum = OptionsHelpers.languageNames.length - 1;
+        OptionsHelpers.ChangeLanguage(ClientPrefs.languageNameNum);
+		display = updateDisplay();
+		return true;
+	}
+
+	public override function getValue():String
+	{
+		return "Language: < " + OptionsHelpers.getLanguageByID(ClientPrefs.languageNameNum) + " >";
+	}
+}
+

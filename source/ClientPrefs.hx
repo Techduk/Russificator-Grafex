@@ -20,6 +20,8 @@ class ClientPrefs {
     public static var instantRespawn:Bool = false;
     public static var hliconbop:String = 'Grafex';
     public static var hliconbopNum:Int = 0;
+	public static var languageName:String = 'English';
+	public static var languageNameNum:Int = 0;
     public static var underdelayalpha:Float = 0.1;
     public static var underdelayonoff:Bool = true;
     public static var noteSkin:String = 'Default';
@@ -130,6 +132,8 @@ class ClientPrefs {
         FlxG.save.data.shouldcameramove = shouldcameramove;
         FlxG.save.data.hliconbop = hliconbop;
         FlxG.save.data.hliconbopNum = hliconbopNum;
+		FlxG.save.data.languageName = languageName;
+		FlxG.save.data.languageNameNum = languageNameNum;
         FlxG.save.data.noteSkin = noteSkin;
         FlxG.save.data.noteSkinNum = noteSkinNum;
 		FlxG.save.data.chartautosaveInterval = chartautosaveInterval;
@@ -644,6 +648,22 @@ class ClientPrefs {
 		if (FlxG.save.data.mute != null)
 		{
 			FlxG.sound.muted = FlxG.save.data.mute; 
+		}
+
+		if(FlxG.save.data.languageName != null) {
+			languageName = FlxG.save.data.languageName;
+		}
+
+		if(FlxG.save.data.languageName == null) {
+			languageName = 'English';
+		}
+
+		if(FlxG.save.data.languageNameNum != null) {
+			languageNameNum = FlxG.save.data.languageNameNum;
+		}
+
+		if(FlxG.save.data.languageNameNum == null) {
+			languageNameNum = 0;
 		}
 
 		var save:FlxSave = new FlxSave();

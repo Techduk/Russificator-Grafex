@@ -191,6 +191,7 @@ class OptionsMenu extends FlxSubState
         		]),
 			new OptionCata(935, 40, "Extra", [
 				//new ResetSettings("Reset some your settings. This is irreversible!")
+				new ChangeLanguage("ChangeLanguage."),
 				new AutoSave("Turn AutoSaves your chating in Charting state."),
 				new AutoSaveInt("Change Chart AutoSave Interval."),
                 new SkipTitleOption("Skips TitleState."),
