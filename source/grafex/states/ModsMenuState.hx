@@ -74,6 +74,22 @@ class ModsMenuState extends MusicBeatState
 		Paths.clearUnusedMemory();
 		WeekData.setDirectoryFromWeek();
 
+		var txt1:String = "";
+		var txt2:String = "";
+		var txt3:String = "";
+
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				txt1 = "NO MODS INSTALLED";
+				txt2 = "PRESS BACK TO EXIT AND INSTALL A MOD";
+				txt3 = "BITCH.";
+			case "Russian":
+				txt1 = "МОДЫ НЕ УСТАНОВЛЕННЫ";
+				txt2 = "НАЖМИ НАЗАД И УСТАНОВИТЕ МОДЫ";
+				txt3 = "СУЧКА.";
+		}
+
 		#if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
@@ -83,21 +99,21 @@ class ModsMenuState extends MusicBeatState
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 		
-		noModsTxt = new Alphabet(0, 300, "NO MODS INSTALLED", true, false, 0.05, 0.66);
+		noModsTxt = new Alphabet(0, 300, txt1, true, false, 0.05, 0.66);
 		noModsTxt.screenCenter(X);
 		noModsTxt.scrollFactor.set();
 		add(noModsTxt);
 		noModsTxt.screenCenter();
 		visibleWhenNoMods.push(noModsTxt);
 
-		noModsTxt2 = new Alphabet(0, 400, "PRESS BACK TO EXIT AND INSTALL A MOD", true, false, 0.05, 0.66);
+		noModsTxt2 = new Alphabet(0, 400, txt2, true, false, 0.05, 0.66);
 		noModsTxt2.screenCenter(X);
 		noModsTxt2.scrollFactor.set();
 		add(noModsTxt2);
 		visibleWhenNoMods.push(noModsTxt2);
 		if(FlxG.random.bool(0.1))
 		{
-			noModsTxt3 = new Alphabet(0, 5, "BITCH.", true, false, 0.05, 0.66);
+			noModsTxt3 = new Alphabet(0, 5, txt3, true, false, 0.05, 0.66);
 			noModsTxt3.screenCenter(X);
 			noModsTxt3.scrollFactor.set();
 			add(noModsTxt3);

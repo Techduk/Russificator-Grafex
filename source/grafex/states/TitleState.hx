@@ -89,6 +89,7 @@ class TitleState extends MusicBeatState
 	var titleTextAlphas:Array<Float> = [1, .64];
 
 	var curWacky:Array<String> = [];
+	var curSacky:Array<String> = [];
 
 	var wackyImage:FlxSprite;
 
@@ -126,6 +127,7 @@ class TitleState extends MusicBeatState
 		PlayerSettings.init();
 
 		curWacky = FlxG.random.getObject(getIntroTextShit());
+		curSacky = FlxG.random.getObject(getIntroTextShitRus());
 
 		// DEBUG BULLSHIT
 
@@ -313,6 +315,21 @@ class TitleState extends MusicBeatState
 
 		return swagGoodArray;
 	}
+
+	function getIntroTextShitRus():Array<Array<String>>
+		{
+			var fullText:String = Assets.getText(Paths.txt('introText-rus'));
+	
+			var firstArray:Array<String> = fullText.split('\n');
+			var swagGoodArray:Array<Array<String>> = [];
+	
+			for (i in firstArray)
+			{
+				swagGoodArray.push(i.split('--'));
+			}
+	
+			return swagGoodArray;
+		}
 
 	var transitioning:Bool = false;
 
@@ -551,7 +568,13 @@ class TitleState extends MusicBeatState
 					FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 					FlxG.sound.music.fadeIn(4, 0, 0.7);
 				case 2:
-					createCoolText(['Grafex Engine by'], 45);
+					switch(ClientPrefs.languageName)
+					{
+						case 'English':
+							createCoolText(['Grafex Engine by'], 45);
+						case 'Russian':
+							createCoolText(['Grafex Engine от'], 45);
+					}
 				case 4:
 					addMoreText('JustXale', 45); // yeah yeah, i know
 					addMoreText('PurSnake', 45);					
@@ -563,9 +586,21 @@ class TitleState extends MusicBeatState
 				case 9:
 					deleteCoolText();
 				case 10:
-					createCoolText([curWacky[0]]);
+					switch(ClientPrefs.languageName)
+					{
+						case 'English':
+							createCoolText([curWacky[0]]);
+						case 'Russian':
+							createCoolText([curSacky[0]]);
+					}
 				case 12:
-					addMoreText(curWacky[1]);
+					switch(ClientPrefs.languageName)
+					{
+						case 'English':
+							addMoreText(curWacky[1]);
+						case 'Russian':
+							addMoreText(curSacky[1]);
+					}
 				case 13:
 					deleteCoolText();
 				case 14:
