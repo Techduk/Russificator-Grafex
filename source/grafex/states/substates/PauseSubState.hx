@@ -34,7 +34,7 @@ class PauseSubState extends MusicBeatSubstate
 
 	var menuItems:Array<String> = [];
 	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Options', 'Gameplay Changers', 'Change Difficulty', 'Exit to menu'];
-	var menuItemsOGRus:Array<String> = ['Возврат', 'Перезапуск песни', 'Опции', 'Настройки Геймплея', 'Смена сложности', 'Выход в меню'];
+	var menuItemsOGRus:Array<String> = ['Вернуться', 'Перезапуск песни', 'Опции', 'Настройки Геймплея', 'Смена сложности', 'Выход в меню'];
 	var difficultyChoices = [];
 	var curSelected:Int = 0;
 
@@ -169,7 +169,7 @@ class PauseSubState extends MusicBeatSubstate
 			case 'English':
 				blueballedTxt.text = "Blueballed: " + PlayState.deathCounter;
 			case 'Russian':
-				blueballedTxt.text = "Разбил Яички: " + PlayState.deathCounter;
+				blueballedTxt.text = "Синезаяйцован: " + PlayState.deathCounter;
 		}
 		blueballedTxt.scrollFactor.set();
 		blueballedTxt.setFormat(Paths.font('vcr.ttf'), 32);
@@ -340,7 +340,7 @@ class PauseSubState extends MusicBeatSubstate
 			switch (daSelected)
 			{
 
-				case "Resume" | "Возврат":
+				case "Resume" | "Вернуться":
 						if (ClientPrefs.countdownpause) 
 						{
 							startedCountdown = true;

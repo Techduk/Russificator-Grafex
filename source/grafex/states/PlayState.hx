@@ -3238,7 +3238,7 @@ class PlayState extends MusicBeatState
 				scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName;
 				judgementCounter.text = 'Max Combo: ${maxCombo}\nSicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nAverage: ${Math.round(averageMs)}ms \nHealth: ${Std.string(Math.floor(Std.parseFloat(Std.string((maxHealthProb) / 2))))} %\n game not read that text';
 			case "Russian":
-				scoreTxt.text = 'Счёт: ' + songScore + ' | Ошибка: ' + songMisses + ' | Рейтинг: ' + ratingName;
+				scoreTxt.text = 'Счёт: ' + songScore + ' | Промахов: ' + songMisses + ' | Рейтинг: ' + ratingName;
 				judgementCounter.text = 'Макс. комбо: ${maxCombo}\nКруто: ${sicks}\nХорошо: ${goods}\nПлохо: ${bads}\nДерьмо: ${shits}\nТочность: ${Math.round(averageMs)}мс \nЖизнь: ${Std.string(Math.floor(Std.parseFloat(Std.string((maxHealthProb) / 2))))} %\n похуй игра не читает этот текст'; 
 		}
 		if(ratingName != '?')	
@@ -3249,7 +3249,7 @@ class PlayState extends MusicBeatState
 					scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName;
 					judgementCounter.text = 'Max Combo: ${maxCombo}\nSicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nAverage: ${Math.round(averageMs)}ms \nHealth: ${Std.string(Math.floor(Std.parseFloat(Std.string((maxHealthProb) / 2))))} %\n game not read that text';
 				case "Russian":
-					scoreTxt.text = 'Счёт: ' + songScore + ' | Ошибка: ' + songMisses + ' | Рейтинг: ' + ratingName;
+					scoreTxt.text = 'Счёт: ' + songScore + ' | Промахов: ' + songMisses + ' | Рейтинг: ' + ratingName;
 					judgementCounter.text = 'Макс. комбо: ${maxCombo}\nКруто: ${sicks}\nХорошо: ${goods}\nПлохо: ${bads}\nДерьмо: ${shits}\nТочность: ${Math.round(averageMs)}мс \nЖизнь: ${Std.string(Math.floor(Std.parseFloat(Std.string((maxHealthProb) / 2))))} %\n похуй игра не читает этот текст'; 
 			}
 		}
