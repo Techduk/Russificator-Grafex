@@ -34,6 +34,7 @@ class PauseSubState extends MusicBeatSubstate
 
 	var menuItems:Array<String> = [];
 	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Options', 'Gameplay Changers', 'Change Difficulty', 'Exit to menu'];
+	var menuItemsOGRus:Array<String> = ['Возврат', 'Перезапуск песни', 'Опции', 'Настройки Геймплея', 'Смена сложности', 'Выход в меню'];
 	var difficultyChoices = [];
 	var curSelected:Int = 0;
 
@@ -48,6 +49,7 @@ class PauseSubState extends MusicBeatSubstate
 	var levelDifficulty:FlxText = new FlxText(20, 15 + 32, 0, "", 32);
 	var blueballedTxt:FlxText = new FlxText(20, 15 + 64, 0, "", 32);
 	var chartingText:FlxText = new FlxText(20, 15 + 101, 0, "CHARTING MODE", 32);
+	var chartingTextRus:FlxText = new FlxText(20, 15 + 101, 0, "Режим Чарта", 32);
 
 	public var countdownReady:FlxSprite;
 	public var countdownSet:FlxSprite;
@@ -63,22 +65,44 @@ class PauseSubState extends MusicBeatSubstate
 	{
 		super();
 		
-        if(Utils.difficulties.length < 2) menuItemsOG.remove('Change Difficulty'); //No need to change difficulty if there is only one!
-		if(PlayState.chartingMode)
+		switch(ClientPrefs.languageName)
 		{
-			menuItemsOG.insert(2, 'Leave Charting Mode');
-			
-			var num:Int = 0;
-			if(!PlayState.instance.startingSong)
-			{
-				num = 1;
-				menuItemsOG.insert(3, 'Skip Time');
-			}
-			menuItemsOG.insert(3 + num, 'End Song');
-			menuItemsOG.insert(4 + num, 'Toggle Practice Mode');
-			menuItemsOG.insert(5 + num, 'Toggle Botplay');
+			case 'English':
+				if(Utils.difficulties.length < 2) menuItemsOG.remove('Change Difficulty'); //No need to change difficulty if there is only one!
+				if(PlayState.chartingMode)
+				{
+					menuItemsOG.insert(2, 'Leave Charting Mode');
+					
+					var num:Int = 0;
+					if(!PlayState.instance.startingSong)
+					{
+						num = 1;
+						menuItemsOG.insert(3, 'Skip Time');
+					}
+					menuItemsOG.insert(3 + num, 'End Song');
+					menuItemsOG.insert(4 + num, 'Toggle Practice Mode');
+					menuItemsOG.insert(5 + num, 'Toggle Botplay');
+				}
+				menuItems = menuItemsOG;
+			case "Russian":
+				if(Utils.difficulties.length < 2) menuItemsOG.remove('Смена сложности'); //No need to change difficulty if there is only one!
+				if(PlayState.chartingMode)
+				{
+					menuItemsOG.insert(2, 'Выйти из режима чартинга');
+					
+					var num:Int = 0;
+					if(!PlayState.instance.startingSong)
+					{
+						num = 1;
+						menuItemsOG.insert(3, 'Пропустить время');
+					}
+					menuItemsOG.insert(3 + num, 'Закончить песню');
+					menuItemsOG.insert(4 + num, 'Переключить Режим Практики');
+					menuItemsOG.insert(5 + num, 'Переключить Ботплей');
+				}
+				menuItems = menuItemsOGRus;
+				
 		}
-		menuItems = menuItemsOG;
 
 		for (i in 0...Utils.difficulties.length) {
 			var diff:String = '' + Utils.difficulties[i];
@@ -140,13 +164,29 @@ class PauseSubState extends MusicBeatSubstate
 		levelDifficulty.updateHitbox();
 		add(levelDifficulty);
 
-		blueballedTxt.text = "Blueballed: " + PlayState.deathCounter;
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				blueballedTxt.text = "Blueballed: " + PlayState.deathCounter;
+			case 'Russian':
+				blueballedTxt.text = "Разбил Яички: " + PlayState.deathCounter;
+		}
 		blueballedTxt.scrollFactor.set();
 		blueballedTxt.setFormat(Paths.font('vcr.ttf'), 32);
 		blueballedTxt.updateHitbox();
 		add(blueballedTxt);
 
-		practiceText = new FlxText(20, 15 + 101, 0, "PRACTICE MODE", 32);
+		var sexTXT:String = "";
+
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				sexTXT = "PRACTICE MODE";
+			case 'Russian':
+				sexTXT = "РЕЖИМ ПРАКТИКИ";
+		}
+
+		practiceText = new FlxText(20, 15 + 101, 0, sexTXT, 32);
 		practiceText.scrollFactor.set();
 		practiceText.setFormat(Paths.font('vcr.ttf'), 32);
 		practiceText.x = FlxG.width - (practiceText.width + 20);
@@ -159,8 +199,24 @@ class PauseSubState extends MusicBeatSubstate
 		chartingText.x = FlxG.width - (chartingText.width + 20);
 		chartingText.y = FlxG.height - (chartingText.height + 20);
 		chartingText.updateHitbox();
-		chartingText.visible = PlayState.chartingMode;
 		add(chartingText);
+
+		chartingTextRus.scrollFactor.set();
+		chartingTextRus.setFormat(Paths.font('vcr.ttf'), 32);
+		chartingTextRus.x = FlxG.width - (chartingText.width + 20);
+		chartingTextRus.y = FlxG.height - (chartingText.height + 20);
+		chartingTextRus.updateHitbox();
+		add(chartingTextRus);
+		
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				chartingText.text = "CHARTING MODE";
+			case 'Russian':
+				chartingText.text = "Режим Чарта";
+		}
+		
+
 
 		blueballedTxt.alpha = 0;
 		levelDifficulty.alpha = 0;
@@ -220,7 +276,7 @@ class PauseSubState extends MusicBeatSubstate
         var daSelected:String = menuItems[curSelected];
 		switch (daSelected)
 		{
-			case 'Skip Time':
+			case 'Skip Time' | 'Пропустить время':
 				if (controls.UI_LEFT_P)
 				{
 					FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
@@ -283,7 +339,8 @@ class PauseSubState extends MusicBeatSubstate
 
 			switch (daSelected)
 			{
-				case "Resume":
+
+				case "Resume" | "Возврат":
 						if (ClientPrefs.countdownpause) 
 						{
 							startedCountdown = true;
@@ -294,25 +351,25 @@ class PauseSubState extends MusicBeatSubstate
 							close();
 						}
 
-				case "Options":
+				case "Options" | "Опции":
 					goToOptions = true;
 					close();
-				case 'Gameplay Changers':
+				case 'Gameplay Changers' | 'Настройки Геймплея':
 					close();
 					PlayState.instance.openChangersMenu();
-				case 'Change Difficulty':
+				case 'Change Difficulty' | 'Смена сложности':
 					menuItems = difficultyChoices;
 					regenMenu();
-				case 'Toggle Practice Mode':
+				case 'Toggle Practice Mode' | 'Переключить Режим Практики':
 					PlayState.instance.practiceMode = !PlayState.instance.practiceMode;
 					PlayState.changedDifficulty = true;
 					practiceText.visible = PlayState.instance.practiceMode;
-				case "Restart Song":
+				case "Restart Song" | "Перезапуск песни":
 					restartSong();
-                                case "Leave Charting Mode":
+                                case "Leave Charting Mode" | "Выйти из режима чартинга":
 					restartSong();
 					PlayState.chartingMode = false;
-				case 'Skip Time':
+				case 'Skip Time' | 'Закончить песню':
 					if(curTime < Conductor.songPosition)
 					{
 						PlayState.startOnTime = curTime;
@@ -327,16 +384,16 @@ class PauseSubState extends MusicBeatSubstate
 						}
 						close();
 					}
-				case "End Song":
+				case "End Song" | "Закончить песню":
 					close();
 					PlayState.instance.finishSong(true);
-				case 'Toggle Botplay':
+				case 'Toggle Botplay' | 'Переключить Ботплей':
 					PlayState.instance.cpuControlled = !PlayState.instance.cpuControlled;
 					PlayState.changedDifficulty = true;
 					PlayState.instance.botplayTxt.visible = PlayState.instance.cpuControlled;
 					PlayState.instance.botplayTxt.alpha = 1;
 					PlayState.instance.botplaySine = 0;
-				case "Exit to menu":
+				case "Exit to menu" | "Выход в меню":
 					PlayState.deathCounter = 0;
 					PlayState.seenCutscene = false;
 					if(PlayState.isStoryMode) {
@@ -474,6 +531,7 @@ PlayState.cancelMusicFadeTween();
 					levelDifficulty.visible = false;
 					blueballedTxt.visible = false;
 					chartingText.visible = false;
+					chartingTextRus.visible = false;
 					practiceText.visible = false;
 					pausebg.visible = false;
 
