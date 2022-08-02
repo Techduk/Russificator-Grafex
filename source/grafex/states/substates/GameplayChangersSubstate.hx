@@ -27,61 +27,121 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 	private var grpTexts:FlxTypedGroup<AttachedText>;
 
 	function getOptions()
-	{
-		var goption:GameplayOption = new GameplayOption('Scroll Type', 'scrolltype', 'string', 'multiplicative', ["multiplicative", "constant"]);
-		optionsArray.push(goption);
-
-		var option:GameplayOption = new GameplayOption('Scroll Speed', 'scrollspeed', 'float', 1);
-		option.scrollSpeed = 1.5;
-		option.minValue = 0.5;
-		option.changeValue = 0.1;
-		if (goption.getValue() != "constant")
+	{	
+		//Im too fucking lazy to do this in "normal" way - PyroGuy
+		switch(ClientPrefs.languageName)
 		{
-			option.displayFormat = '%vX';
-			option.maxValue = 3;
+			case 'English':
+				var goption:GameplayOption = new GameplayOption('Scroll Type', 'scrolltype', 'string', 'multiplicative', ["multiplicative", "constant"]);
+				optionsArray.push(goption);
+
+				var option:GameplayOption = new GameplayOption('Scroll Speed', 'scrollspeed', 'float', 1);
+				option.scrollSpeed = 1.5;
+				option.minValue = 0.5;
+				option.changeValue = 0.1;
+				if (goption.getValue() != "constant")
+				{
+					option.displayFormat = '%vX';
+					option.maxValue = 3;
+				}
+				else
+				{
+					option.displayFormat = "%v";
+					option.maxValue = 6;
+				}
+				optionsArray.push(option);
+
+				var option:GameplayOption = new GameplayOption('Health Drain Percent', 'healthdrainpercent', 'percent', 0);
+				optionsArray.push(option);
+
+				/*var option:GameplayOption = new GameplayOption('Playback Rate', 'songspeed', 'float', 1);
+				option.scrollSpeed = 1;
+				option.minValue = 0.5;
+				option.maxValue = 2.5;
+				option.changeValue = 0.1;
+				option.displayFormat = '%vX';
+				optionsArray.push(option);*/
+
+				var option:GameplayOption = new GameplayOption('Health Gain Multiplier', 'healthgain', 'float', 1);
+				option.scrollSpeed = 2.5;
+				option.minValue = 0;
+				option.maxValue = 5;
+				option.changeValue = 0.1;
+				option.displayFormat = '%vX';
+				optionsArray.push(option);
+
+				var option:GameplayOption = new GameplayOption('Health Loss Multiplier', 'healthloss', 'float', 1);
+				option.scrollSpeed = 2.5;
+				option.minValue = 0.5;
+				option.maxValue = 5;
+				option.changeValue = 0.1;
+				option.displayFormat = '%vX';
+				optionsArray.push(option);
+
+				var option:GameplayOption = new GameplayOption('Instakill on Miss', 'instakill', 'bool', false);
+				optionsArray.push(option);
+
+				var option:GameplayOption = new GameplayOption('Practice Mode', 'practice', 'bool', false);
+				optionsArray.push(option);
+
+				var option:GameplayOption = new GameplayOption('Botplay', 'botplay', 'bool', false);
+				optionsArray.push(option);
+			case 'Russian':
+				var goption:GameplayOption = new GameplayOption('Скролл Тип', 'scrolltype', 'string', 'множитель', ["множитель", "константа"]);
+				optionsArray.push(goption);
+
+				var option:GameplayOption = new GameplayOption('Скорость Скролла', 'scrollspeed', 'float', 1);
+				option.scrollSpeed = 1.5;
+				option.minValue = 0.5;
+				option.changeValue = 0.1;
+				if (goption.getValue() != "константа")
+				{
+					option.displayFormat = '%vX';
+					option.maxValue = 3;
+				}
+				else
+				{
+					option.displayFormat = "%v";
+					option.maxValue = 6;
+				}
+				optionsArray.push(option);
+
+				var option:GameplayOption = new GameplayOption('Процент снижения ХП', 'healthdrainpercent', 'percent', 0);
+				optionsArray.push(option);
+
+				/*var option:GameplayOption = new GameplayOption('Playback Rate', 'songspeed', 'float', 1);
+				option.scrollSpeed = 1;
+				option.minValue = 0.5;
+				option.maxValue = 2.5;
+				option.changeValue = 0.1;
+				option.displayFormat = '%vX';
+				optionsArray.push(option);*/
+
+				var option:GameplayOption = new GameplayOption('Множитель повышения ХП', 'healthgain', 'float', 1);
+				option.scrollSpeed = 2.5;
+				option.minValue = 0;
+				option.maxValue = 5;
+				option.changeValue = 0.1;
+				option.displayFormat = '%vX';
+				optionsArray.push(option);
+
+				var option:GameplayOption = new GameplayOption('Множитель уменьшения ХП', 'healthloss', 'float', 1);
+				option.scrollSpeed = 2.5;
+				option.minValue = 0.5;
+				option.maxValue = 5;
+				option.changeValue = 0.1;
+				option.displayFormat = '%vX';
+				optionsArray.push(option);
+
+				var option:GameplayOption = new GameplayOption('Смерть на Ошибке', 'instakill', 'bool', false);
+				optionsArray.push(option);
+
+				var option:GameplayOption = new GameplayOption('Режим Практики', 'practice', 'bool', false);
+				optionsArray.push(option);
+
+				var option:GameplayOption = new GameplayOption('БотПлей', 'botplay', 'bool', false);
+				optionsArray.push(option);
 		}
-		else
-		{
-			option.displayFormat = "%v";
-			option.maxValue = 6;
-		}
-		optionsArray.push(option);
-
-		var option:GameplayOption = new GameplayOption('Health Drain Percent', 'healthdrainpercent', 'percent', 0);
-		optionsArray.push(option);
-
-		/*var option:GameplayOption = new GameplayOption('Playback Rate', 'songspeed', 'float', 1);
-		option.scrollSpeed = 1;
-		option.minValue = 0.5;
-		option.maxValue = 2.5;
-		option.changeValue = 0.1;
-		option.displayFormat = '%vX';
-		optionsArray.push(option);*/
-
-		var option:GameplayOption = new GameplayOption('Health Gain Multiplier', 'healthgain', 'float', 1);
-		option.scrollSpeed = 2.5;
-		option.minValue = 0;
-		option.maxValue = 5;
-		option.changeValue = 0.1;
-		option.displayFormat = '%vX';
-		optionsArray.push(option);
-
-		var option:GameplayOption = new GameplayOption('Health Loss Multiplier', 'healthloss', 'float', 1);
-		option.scrollSpeed = 2.5;
-		option.minValue = 0.5;
-		option.maxValue = 5;
-		option.changeValue = 0.1;
-		option.displayFormat = '%vX';
-		optionsArray.push(option);
-
-		var option:GameplayOption = new GameplayOption('Instakill on Miss', 'instakill', 'bool', false);
-		optionsArray.push(option);
-
-		var option:GameplayOption = new GameplayOption('Practice Mode', 'practice', 'bool', false);
-		optionsArray.push(option);
-
-		var option:GameplayOption = new GameplayOption('Botplay', 'botplay', 'bool', false);
-		optionsArray.push(option);
 	}
 
 	public function getOptionByName(name:String)
@@ -245,6 +305,25 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 												updateTextFrom(oOption);
 											}
 										}
+										if (curOption.name == "Скролл Тип")
+											{
+												var oOption:GameplayOption = getOptionByName("Скорость Скролла");
+												if (oOption != null)
+												{
+													if (curOption.getValue() == "константа")
+													{
+														oOption.displayFormat = "%v";
+														oOption.maxValue = 6;
+													}
+													else
+													{
+														oOption.displayFormat = "%vX";
+														oOption.maxValue = 3;
+														if(oOption.getValue() > 3) oOption.setValue(3);
+													}
+													updateTextFrom(oOption);
+												}
+											}
 										//trace(curOption.options[num]);
 							}
 							updateTextFrom(curOption);

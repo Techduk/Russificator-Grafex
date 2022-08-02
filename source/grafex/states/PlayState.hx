@@ -1473,7 +1473,14 @@ class PlayState extends MusicBeatState
 		add(judgementCounter);
 
 		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "", 32);
-		botplayTxt.text = "BOTPLAY";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				botplayTxt.text = "BOTPLAY";
+			case 'Russian':
+				botplayTxt.text = "БОТПЛЕЙ";
+		}
+		
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		botplayTxt.scrollFactor.set();
 		botplayTxt.borderSize = 1.25;

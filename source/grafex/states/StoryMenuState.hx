@@ -218,7 +218,13 @@ class StoryMenuState extends MusicBeatState
 		lerpScore = Math.floor(FlxMath.lerp(lerpScore, intendedScore, Utils.boundTo(elapsed * 30, 0, 1)));
 		if(Math.abs(intendedScore - lerpScore) < 10) lerpScore = intendedScore;
 
-		scoreText.text = "WEEK SCORE:" + lerpScore;
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				scoreText.text = "WEEK SCORE:" + lerpScore;
+			case 'Russian':
+				scoreText.text = "СЧЁТ НЕДЕЛИ:" + lerpScore;
+		}
 
 		// FlxG.watch.addQuick('font', scoreText.font);
 
