@@ -82,6 +82,16 @@ class CreditsState extends MusicBeatState
 	
 
 		var pisspoop:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
+			['Russificator by'],
+			['АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦШЩЪЫЬЭЮЯ','','Developer of Russificator','','f7a300'],
+			['абвгдеёжзийклмнопрстуфхцшщъыьэюя','','Developer of Russificator','','f7a300'],
+			['АБВГДЕЁЖЗИЙКЛМНО'],
+			['ПРСТУФХЦШЩЪЫЬЭЮЯ'],
+			['ABCDEFGHIJKLMNOPQRSTUVWXYZ','bruh','Developer of Russificator','','f7a300'],
+			['abcdefghijklmnopqrstuvwxyz','','Developer of Russificator','','f7a300'],
+			['ABCDEFGHIJKLM'],
+			['NOPQRSTUVWXYZ'],
+			[''],
 			['Grafex Engine by'],
 		    ['JUSTXALE','xale','Developer of Grafex Engine','https://github.com/JustXale','f7a300'],
 		    ['PurSnake','snake','Developer of Grafex Engine','https://github.com/PurpleSSSnake', 'C549DB'],
