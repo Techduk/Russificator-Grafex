@@ -127,8 +127,75 @@ class OptionsMenu extends FlxSubState
 	public var descText:FlxText;
 	public var descBack:FlxSprite;
 
+	var txtGameplay:String = "";
+	var txt1:String = "";
+	var txt2:String = "";
+	var txt3:String = "";
+	var txt4:String = "";
+	var txt5:String = "";
+	var txt6:String = "";
+	var txt7:String = "";
+	var txt8:String = "";
+	var txt9:String = "";
+	var txtAppearance:String = "";
+	var txt10:String = "";
+	var txt11:String = "";
+	var txt12:String = "";
+	var txt13:String = "";
+	var txt14:String = "";
+	var txt15:String = "";
+	var txt16:String = "";
+	var txt17:String = "";
+	var txt18:String = "";
+
 	override function create()
 	{
+
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				txtGameplay = "Gameplay"; //Gameplay
+				txt1 = "Adds 'hitsound' on note hits.";
+				txt2 = "Toggle counting pressing a directional input when no arrow is there as a miss.";
+				txt3 = "Toggle making the notes scroll down rather than up.";
+				txt4 = "Toggle pressing R to gameover.";
+				txt5 = "Toggle if you instantly respawn after dying.";
+				txt6 = "Toggle the camera zoom in-game.";
+				txt7 = "Create a custom judgement preset";
+				txt8 = "Moves camera on opponent/player note hits.";
+				txtAppearance = "Appearance"; //Appearance
+				txt9 = "";
+				txt10 = "";
+				txt11 = "";
+				txt12 = "";
+				txt13 = "";
+				txt14 = "";
+				txt15 = "";
+				txt16 = "";
+				txt17 = "";
+				txt18 = "";
+			case "Russian":
+				txtGameplay = "Геймплей"; //Геймплей
+				txt1 = "Добавляет звук при нажатии ноты.";
+				txt2 = "Если включено, не реагирует на промахи, когда стрелка отсутствует.";
+				txt3 = "Перемещает стрелки вниз (Нижний скролл)";
+				txt4 = "При нажатии на R, вы погибаете. ";
+				txt5 = "После смерти, вы моментально возраждаетесь.";
+				txt6 = "Включить или выключить масштабирование камеры";
+				txt7 = "Изменить задержку ввода. ";
+				txt8 = "Передвигать камеру при нажатии нот.";
+				txtAppearance = "Дизайн"; //Дизайн
+				txt9 = "";
+				txt10 = "";
+				txt11 = "";
+				txt12 = "";
+				txt13 = "";
+				txt14 = "";
+				txt15 = "";
+				txt16 = "";
+				txt17 = "";
+				txt18 = "";
+		}
 
 		if (!isInPause)
 		  if(!ControlsSubState.fromcontrols)
@@ -139,21 +206,21 @@ class OptionsMenu extends FlxSubState
 
 
 		options = [
-			new OptionCata(50, 40, "Gameplay", [
+			new OptionCata(50, 40, txtGameplay, [
 				//new OffsetThing("Change the note visual offset (how many milliseconds a note looks like it is offset in a chart)"),
-				new HitSoundOption("Adds 'hitsound' on note hits."),
-				new GhostTapOption("Toggle counting pressing a directional input when no arrow is there as a miss."),
-				new DownscrollOption("Toggle making the notes scroll down rather than up."),
-				new NoReset("Toggle pressing R to gameover."),
-				new InstantRespawn("Toggle if you instantly respawn after dying."),
-				new CamZoomOption("Toggle the camera zoom in-game."),
+				new HitSoundOption(txt1),
+				new GhostTapOption(txt2),
+				new DownscrollOption(txt3),
+				new NoReset(txt4),
+				new InstantRespawn(txt5),
+				new CamZoomOption(txt6),
                 new DFJKOption(),
                 new NotesOption(),
                 new Customizeption(),
-				new Judgement("Create a custom judgement preset"),
-				new Shouldcameramove("Moves camera on opponent/player note hits."),
+				new Judgement(txt7),
+				new Shouldcameramove(txt8),
 			]),
-			new OptionCata(345, 40, "Appearance", [
+			new OptionCata(345, 40, txtAppearance, [
                 new NoteskinOption("Change your current noteskin"),
 				new AccTypeOption("Change your current accuracy type you want!"),
                 new IconBop("Change icon bopping type"),
