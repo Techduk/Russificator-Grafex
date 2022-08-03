@@ -48,8 +48,7 @@ class PauseSubState extends MusicBeatSubstate
 	var levelInfo:FlxText = new FlxText(20, 15, 0, "", 32);
 	var levelDifficulty:FlxText = new FlxText(20, 15 + 32, 0, "", 32);
 	var blueballedTxt:FlxText = new FlxText(20, 15 + 64, 0, "", 32);
-	var chartingText:FlxText = new FlxText(20, 15 + 101, 0, "CHARTING MODE", 32);
-	var chartingTextRus:FlxText = new FlxText(20, 15 + 101, 0, "Режим Чарта", 32);
+	var chartingText:FlxText = new FlxText(20, 15 + 101, 0, "", 32);
 
 	public var countdownReady:FlxSprite;
 	public var countdownSet:FlxSprite;
@@ -194,30 +193,21 @@ class PauseSubState extends MusicBeatSubstate
 		practiceText.visible = PlayState.instance.practiceMode;
 		add(practiceText);
 
-		chartingText.scrollFactor.set();
-		chartingText.setFormat(Paths.font('vcr.ttf'), 32);
-		chartingText.x = FlxG.width - (chartingText.width + 20);
-		chartingText.y = FlxG.height - (chartingText.height + 20);
-		chartingText.updateHitbox();
-		add(chartingText);
-
-		chartingTextRus.scrollFactor.set();
-		chartingTextRus.setFormat(Paths.font('vcr.ttf'), 32);
-		chartingTextRus.x = FlxG.width - (chartingText.width + 20);
-		chartingTextRus.y = FlxG.height - (chartingText.height + 20);
-		chartingTextRus.updateHitbox();
-		add(chartingTextRus);
-		
 		switch(ClientPrefs.languageName)
 		{
 			case 'English':
 				chartingText.text = "CHARTING MODE";
 			case 'Russian':
-				chartingText.text = "Режим Чарта";
+				chartingText.text = "РЕЖИМ ЧАРТА";
 		}
+		chartingText.scrollFactor.set();
+		chartingText.setFormat(Paths.font('vcr.ttf'), 32);
+		chartingText.x = FlxG.width - (chartingText.width + 20);
+		chartingText.y = FlxG.height - (chartingText.height + 20);
+		chartingText.updateHitbox();
+		chartingText.visible = PlayState.chartingMode;
+		add(chartingText);
 		
-
-
 		blueballedTxt.alpha = 0;
 		levelDifficulty.alpha = 0;
 		levelInfo.alpha = 0;
@@ -531,7 +521,6 @@ PlayState.cancelMusicFadeTween();
 					levelDifficulty.visible = false;
 					blueballedTxt.visible = false;
 					chartingText.visible = false;
-					chartingTextRus.visible = false;
 					practiceText.visible = false;
 					pausebg.visible = false;
 
