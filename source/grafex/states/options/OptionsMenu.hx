@@ -128,6 +128,27 @@ class OptionsMenu extends FlxSubState
 	public var descBack:FlxSprite;
 
 	var txtGameplay:String = "";
+	var txtg1:String = "";
+	var txtg2:String = "";
+	var txtg3:String = "";
+	var txtg4:String = "";
+	var txtg5:String = "";
+	var txtg6:String = "";
+	var txtg7:String = "";
+	var txtg8:String = "";
+
+	var txtAppearance:String = "";
+	var txta1:String = "";
+	var txta2:String = "";
+	var txta3:String = "";
+	var txta4:String = "";
+	var txta5:String = "";
+	var txta6:String = "";
+	var txta7:String = "";
+	var txta8:String = "";
+	var txta9:String = "";
+	var txta10:String = "";
+/*
 	var txt1:String = "";
 	var txt2:String = "";
 	var txt3:String = "";
@@ -137,7 +158,6 @@ class OptionsMenu extends FlxSubState
 	var txt7:String = "";
 	var txt8:String = "";
 	var txt9:String = "";
-	var txtAppearance:String = "";
 	var txt10:String = "";
 	var txt11:String = "";
 	var txt12:String = "";
@@ -146,7 +166,7 @@ class OptionsMenu extends FlxSubState
 	var txt15:String = "";
 	var txt16:String = "";
 	var txt17:String = "";
-	var txt18:String = "";
+	var txt18:String = ""; */
 
 	override function create()
 	{
@@ -155,46 +175,49 @@ class OptionsMenu extends FlxSubState
 		{
 			case 'English':
 				txtGameplay = "Gameplay"; //Gameplay
-				txt1 = "Adds 'hitsound' on note hits.";
-				txt2 = "Toggle counting pressing a directional input when no arrow is there as a miss.";
-				txt3 = "Toggle making the notes scroll down rather than up.";
-				txt4 = "Toggle pressing R to gameover.";
-				txt5 = "Toggle if you instantly respawn after dying.";
-				txt6 = "Toggle the camera zoom in-game.";
-				txt7 = "Create a custom judgement preset";
-				txt8 = "Moves camera on opponent/player note hits.";
+				txtg1 = "Adds 'hitsound' on note hits.";
+				txtg2 = "Toggle counting pressing a directional input when no arrow is there as a miss.";
+				txtg3 = "Toggle making the notes scroll down rather than up.";
+				txtg4 = "Toggle pressing R to gameover.";
+				txtg5 = "Toggle if you instantly respawn after dying.";
+				txtg6 = "Toggle the camera zoom in-game.";
+				txtg7 = "Create a custom judgement preset";
+				txtg8 = "Moves camera on opponent/player note hits.";
+
 				txtAppearance = "Appearance"; //Appearance
-				txt9 = "";
-				txt10 = "";
-				txt11 = "";
-				txt12 = "";
-				txt13 = "";
-				txt14 = "";
-				txt15 = "";
-				txt16 = "";
-				txt17 = "";
-				txt18 = "";
+				txta1 = "Change your current noteskin";
+				txta2 = "Change your current accuracy type you want!";
+				txta3 = "Change icon bopping type";
+				txta4 = "Shows to you name of song your playing on HUD";
+				txta5 = "Put your lane in the center or on the right.";
+				txta6 = "Shows/Hides opponent strums on screen.(RESTART SONG)";
+				txta7 = "Toggle miss sounds playing when you don't hit a note.";
+				txta8 = "Toggle miss animations playing when you don't hit a note.";
+				txta9 = "Show particles on SICK hit.";
+				txta10 = "Enables filter like in MicedUp Engine.";
 			case "Russian":
 				txtGameplay = "Геймплей"; //Геймплей
-				txt1 = "Добавляет звук при нажатии ноты.";
-				txt2 = "Если включено, не реагирует на промахи, когда стрелка отсутствует.";
-				txt3 = "Перемещает стрелки вниз (Нижний скролл)";
-				txt4 = "При нажатии на R, вы погибаете. ";
-				txt5 = "После смерти, вы моментально возраждаетесь.";
-				txt6 = "Включить или выключить масштабирование камеры";
-				txt7 = "Изменить задержку ввода. ";
-				txt8 = "Передвигать камеру при нажатии нот.";
+				txtg1 = "Добавляет звук при нажатии ноты.";
+				txtg2 = "Если включено, не реагирует на промахи, когда стрелка отсутствует.";
+				txtg3 = "Перемещает стрелки вниз (Нижний скролл)";
+				txtg4 = "При нажатии на R, вы погибаете. ";
+				txtg5 = "После смерти, вы моментально возраждаетесь.";
+				txtg6 = "Включить или выключить масштабирование камеры";
+				txtg7 = "Изменить задержку ввода. ";
+				txtg8 = "Передвигать камеру при нажатии нот.";
+
 				txtAppearance = "Дизайн"; //Дизайн
-				txt9 = "";
-				txt10 = "";
-				txt11 = "";
-				txt12 = "";
-				txt13 = "";
-				txt14 = "";
-				txt15 = "";
-				txt16 = "";
-				txt17 = "";
-				txt18 = "";
+				txta1 = "Измени дизайн стрелок!";
+				txta2 = "Измени точность, как ты хочешь!";
+				txta3 = "Измени танец иконок.";
+				txta4 = "Показывает название песни на экране.";
+				txta5 = "Поставь свои ноты по середине или справа (Мидл скролл).";
+				txta6 = "Показывать/спрятать ноты опонента. (ПЕРЕЗАПУСК ПЕСНИ)";
+				txta7 = "Если вы не нажали на ноту, то звук не будет издаваться.";
+				txta8 = "Отключает анимации промаха.";
+				txta9 = "Показывать партеклы при нажатии на SICK.";
+				txta10 = "Включает фильтр как на MicedUp Engine.";
+
 		}
 
 		if (!isInPause)
@@ -208,29 +231,29 @@ class OptionsMenu extends FlxSubState
 		options = [
 			new OptionCata(50, 40, txtGameplay, [
 				//new OffsetThing("Change the note visual offset (how many milliseconds a note looks like it is offset in a chart)"),
-				new HitSoundOption(txt1),
-				new GhostTapOption(txt2),
-				new DownscrollOption(txt3),
-				new NoReset(txt4),
-				new InstantRespawn(txt5),
-				new CamZoomOption(txt6),
+				new HitSoundOption(txtg1),
+				new GhostTapOption(txtg2),
+				new DownscrollOption(txtg3),
+				new NoReset(txtg4),
+				new InstantRespawn(txtg5),
+				new CamZoomOption(txtg6),
                 new DFJKOption(),
                 new NotesOption(),
                 new Customizeption(),
-				new Judgement(txt7),
-				new Shouldcameramove(txt8),
+				new Judgement(txtg7),
+				new Shouldcameramove(txtg8),
 			]),
 			new OptionCata(345, 40, txtAppearance, [
-                new NoteskinOption("Change your current noteskin"),
-				new AccTypeOption("Change your current accuracy type you want!"),
-                new IconBop("Change icon bopping type"),
-				new SongNameOption("Shows to you name of song your playing on HUD"),
-				new MiddleScrollOption("Put your lane in the center or on the right."), 
-				new HideOppStrumsOption("Shows/Hides opponent strums on screen.(RESTART SONG)"),
-				new MissSoundsOption("Toggle miss sounds playing when you don't hit a note."),
-				new MissAnimsOption("Toggle miss animations playing when you don't hit a note."),
-                new ShowSplashes("Show particles on SICK hit."),
-                new MicedUpSusOption("Enables filter like in MicedUp Engine."),
+                new NoteskinOption(txta1),
+				new AccTypeOption(txta2),
+                new IconBop(txta3),
+				new SongNameOption(txta4),
+				new MiddleScrollOption(txta5), 
+				new HideOppStrumsOption(txta6),
+				new MissSoundsOption(txta7),
+				new MissAnimsOption(txta8),
+                new ShowSplashes(txta9),
+                new MicedUpSusOption(txta10),
                // new SustainsAlpha("Change Sustain Notes Alpha."),
 				new HealthBarOption("Toggles health bar visibility"),
 				new JudgementCounter("Show your judgements that you've gotten in the song"),
