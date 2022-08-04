@@ -318,13 +318,27 @@ class PauseSubState extends MusicBeatSubstate
 					return;
 				}
 
-				menuItems = menuItemsOG;
-				regenMenu();
+				switch(ClientPrefs.languageName)
+				{
+					case 'English':
+						menuItems = menuItemsOG;
+						regenMenu();
+					case 'Russian':
+						menuItems = menuItemsOGRus;
+						regenMenu();
+				}
 			}
 			else
 			{
-				menuItems = menuItemsOG;
-				regenMenu();
+				switch(ClientPrefs.languageName)
+				{
+					case 'English':
+						menuItems = menuItemsOG;
+						regenMenu();
+					case 'Russian':
+						menuItems = menuItemsOGRus;
+						regenMenu();
+				}
 			}	
 
 			switch (daSelected)
