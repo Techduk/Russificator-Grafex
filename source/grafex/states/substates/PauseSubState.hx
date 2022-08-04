@@ -87,17 +87,17 @@ class PauseSubState extends MusicBeatSubstate
 				if(Utils.difficulties.length < 2) menuItemsOG.remove('Смена сложности'); //No need to change difficulty if there is only one!
 				if(PlayState.chartingMode)
 				{
-					menuItemsOG.insert(2, 'Выйти из режима чартинга');
+					menuItemsOGRus.insert(2, 'Выйти из режима чартинга');
 					
 					var num:Int = 0;
 					if(!PlayState.instance.startingSong)
 					{
 						num = 1;
-						menuItemsOG.insert(3, 'Пропустить время');
+						menuItemsOGRus.insert(3, 'Пропустить время');
 					}
-					menuItemsOG.insert(3 + num, 'Закончить песню');
-					menuItemsOG.insert(4 + num, 'Переключить Режим Практики');
-					menuItemsOG.insert(5 + num, 'Переключить Ботплей');
+					menuItemsOGRus.insert(3 + num, 'Закончить песню');
+					menuItemsOGRus.insert(4 + num, 'Переключить Режим Практики');
+					menuItemsOGRus.insert(5 + num, 'Переключить Ботплей');
 				}
 				menuItems = menuItemsOGRus;
 				
