@@ -148,6 +148,27 @@ class OptionsMenu extends FlxSubState
 	var txta8:String = "";
 	var txta9:String = "";
 	var txta10:String = "";
+	var txta11:String = "";
+	var txta12:String = "";
+	var txta13:String = "";
+	var txta14:String = "";
+	var txta15:String = "";
+	var txta16:String = "";
+	var txta17:String = "";
+	var txta18:String = "";
+	var txta19:String = "";
+	var txtMisc:String = "";
+	var txtm1:String = "";
+	var txtm2:String = "";
+	var txtm3:String = "";
+	var txtm4:String = "";
+	var txtm5:String = "";
+	var txtm6:String = "";
+	var txtm7:String = "";
+	var txtm8:String = "";
+	var txtm9:String = "";
+	var txtm10:String = "";
+	var txtm11:String = "";
 /*
 	var txt1:String = "";
 	var txt2:String = "";
@@ -195,6 +216,29 @@ class OptionsMenu extends FlxSubState
 				txta8 = "Toggle miss animations playing when you don't hit a note.";
 				txta9 = "Show particles on SICK hit.";
 				txta10 = "Enables filter like in MicedUp Engine.";
+				txta11 = "Toggles health bar visibility";
+				txta12 = "Show your judgements that you've gotten in the song";
+				txta13 = "How transparent your lane is, higher = more visible.";
+				txta14 = "Shows to you hud.";
+				txta15 = "Combo sprite appearance.";
+				txta16 = "Zoom score on 2'nd beat.";
+				txta17 = "Healthbar Transparceny.";
+				txta18 = "(CONTAINS FPS ISSUES)/Make notes a bit 'blurred'.";
+				txta19 = "Change the song's current position bar.";
+
+				txtMisc = "Misc";
+				txtm1 = "Toggle flashing lights that can cause epileptic seizures and strain.";
+				txtm2 = "You can set colorblind filter (makes the game more playable for colorblind people).";
+				txtm3 = "Toggle the FPS Counter.";
+				txtm4 = "Toggle the MEM Counter.";
+				txtm5 = "Change your FPS Cap.";
+				txtm6 = "Stops game, when its unfocused";
+				txtm7 = "Adds 'vintage' on game screen.";
+				txtm8 = "Toggle antialiasing, improving graphics quality at a slight performance penalty.";
+				txtm9 = "Turn off some object on stages";
+				txtm10 = "Images loaded will stay in memory until the game is closed.";
+				txtm11 = "Makes screen green.";
+
 			case "Russian":
 				txtGameplay = "Геймплей"; //Геймплей
 				txtg1 = "Добавляет звук при нажатии ноты.";
@@ -217,7 +261,28 @@ class OptionsMenu extends FlxSubState
 				txta8 = "Отключает анимации промаха.";
 				txta9 = "Показывать партеклы при нажатии на SICK.";
 				txta10 = "Включает фильтр как на MicedUp Engine.";
+				txta11 = "Переключает видимость панели здоровья";
+				txta12 = "Показывает вашу точность, которую вы получили в песне.";
+				txta13 = "Задний фон для стрелок, больше = виднее.";
+				txta14 = "Показывавает твой интерфейс.";
+				txta15 = "Включает 'Комбо' спрайт.";
+				txta16 = "Приближает счет на 2-м ударе.";
+				txta17 = "Прозрачность панели здоровья.";
+				txta18 = "(СОДЕРЖИТ ПРОБЛЕМЫ С кадрами в СЕКУНДУ)/ Сделайте ноты немного 'размытыми'.";
+				txta19 = "Изменяет показ времени песни.";
 
+				txtMisc = "Разное"; //Разное
+				txtm1 = "Переключайте мигающие огни, которые могут вызвать эпилептические припадки и напряжение.";
+				txtm2 = "Вы можете установить фильтр дальтонизма (делает игру более воспроизводимой для дальтоников).";
+				txtm3 = "Включает ФПС индикатор.";
+				txtm4 = "Включает ПАМ индикатор.";
+				txtm5 = "Измените свой предел ФПС.";
+				txtm6 = "Останавливает игру, когда она расфокусирована.";
+				txtm7 = "Добавляет 'винтаж' на игровой экран.";
+				txtm8 = "Переключение сглаживания, улучшающее качество графики при незначительном снижении производительности.";
+				txtm9 = "Отключить какой-либо объект на этапах";
+				txtm10 = "Загруженные изображения будут оставаться в памяти до тех пор, пока игра не будет закрыта.";
+				txtm11 = "Делает зелёный экран.";
 		}
 
 		if (!isInPause)
@@ -255,29 +320,29 @@ class OptionsMenu extends FlxSubState
                 new ShowSplashes(txta9),
                 new MicedUpSusOption(txta10),
                // new SustainsAlpha("Change Sustain Notes Alpha."),
-				new HealthBarOption("Toggles health bar visibility"),
-				new JudgementCounter("Show your judgements that you've gotten in the song"),
-				new LaneUnderlayOption("How transparent your lane is, higher = more visible."),
-                new HideHud("Shows to you hud."),
-                new ShowCombo("Combo sprite appearance."),
-                new ScoreZoom("Zoom score on 2'nd beat."),
-                new HealthBarAlpha("Healthbar Transparceny."),
-                new BlurNotes("(CONTAINS FPS ISSUES)/Make notes a bit 'blurred'."),
-			    new TimeBarType("Change the song's current position bar."),
+				new HealthBarOption(txta11),
+				new JudgementCounter(txta12),
+				new LaneUnderlayOption(txta13),
+                new HideHud(txta14),
+                new ShowCombo(txta15),
+                new ScoreZoom(txta16),
+                new HealthBarAlpha(txta17),
+                new BlurNotes(txta18),
+			    new TimeBarType(txta19),
 			]),
-			new OptionCata(640, 40, "Misc", [
-				new FlashingLightsOption("Toggle flashing lights that can cause epileptic seizures and strain."),
-				new ColorBlindOption("You can set colorblind filter (makes the game more playable for colorblind people)."),
-				new FPSOption("Toggle the FPS Counter."),
-                new MEMOption("Toggle the MEM Counter."),
-				#if desktop new FPSCapOption("Change your FPS Cap."),
+			new OptionCata(640, 40, txtMisc, [
+				new FlashingLightsOption(txtm1),
+				new ColorBlindOption(txtm2),
+				new FPSOption(txtm3),
+                new MEMOption(txtm4),
+				#if desktop new FPSCapOption(txtm5),
 				#end
-                new AutoPause("Stops game, when its unfocused"),
-				new VintageOption("Adds 'vintage' on game screen."),
-                new AntialiasingOption("Toggle antialiasing, improving graphics quality at a slight performance penalty."),
-                new QualityLow("Turn off some object on stages"),
-				new Imagepersist("Images loaded will stay in memory until the game is closed."),
-				new GreenScreenMode("Makes screen green."),
+                new AutoPause(txtm6),
+				new VintageOption(txtm7),
+                new AntialiasingOption(txtm8),
+                new QualityLow(txtm9),
+				new Imagepersist(txtm10),
+				new GreenScreenMode(txtm11),
         		]),
 			new OptionCata(935, 40, "Extra", [
 				//new ResetSettings("Reset some your settings. This is irreversible!")
