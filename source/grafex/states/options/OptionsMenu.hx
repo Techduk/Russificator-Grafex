@@ -169,6 +169,17 @@ class OptionsMenu extends FlxSubState
 	var txtm9:String = "";
 	var txtm10:String = "";
 	var txtm11:String = "";
+	var txtExtra:String = "";
+	var txte1:String = "";
+	var txte2:String = "";
+	var txte3:String = "";
+	var txte4:String = "";
+	var txte5:String = "";
+	var txtKey:String = "";
+	var txtJud:String = "";
+	var txtj1:String = "";
+	var txtj2:String = "";
+	var txtj3:String = "";
 /*
 	var txt1:String = "";
 	var txt2:String = "";
@@ -226,7 +237,7 @@ class OptionsMenu extends FlxSubState
 				txta18 = "(CONTAINS FPS ISSUES)/Make notes a bit 'blurred'.";
 				txta19 = "Change the song's current position bar.";
 
-				txtMisc = "Misc";
+				txtMisc = "Misc"; //Misc
 				txtm1 = "Toggle flashing lights that can cause epileptic seizures and strain.";
 				txtm2 = "You can set colorblind filter (makes the game more playable for colorblind people).";
 				txtm3 = "Toggle the FPS Counter.";
@@ -238,6 +249,20 @@ class OptionsMenu extends FlxSubState
 				txtm9 = "Turn off some object on stages";
 				txtm10 = "Images loaded will stay in memory until the game is closed.";
 				txtm11 = "Makes screen green.";
+
+				txtExtra = "Extra"; //Extra
+				txte1 = "Change Language. :D";
+				txte2 = "Turn AutoSaves your chating in Charting state.";
+				txte3 = "Change Chart AutoSave Interval.";
+				txte4 = "Skips TitleState.";
+				txte5 = "Toggle countdown after pressing 'Resume' in Pause Menu.";
+
+				txtKey = "Editing Keybinds";
+
+				txtJud = "Editing Judgements";
+				txtj1 = "How many milliseconds are in the SICK hit window";
+				txtj2 = "How many milliseconds are in the GOOD hit window";
+				txtj3 = "How many milliseconds are in the BAD hit window";
 
 			case "Russian":
 				txtGameplay = "Геймплей"; //Геймплей
@@ -283,6 +308,20 @@ class OptionsMenu extends FlxSubState
 				txtm9 = "Отключить какой-либо объект на этапах";
 				txtm10 = "Загруженные изображения будут оставаться в памяти до тех пор, пока игра не будет закрыта.";
 				txtm11 = "Делает зелёный экран.";
+				
+				txtExtra = "Экстра"; //Экстра
+				txte1 = "Поменяй свой язык :D";
+				txte2 = "Включи автосохранение чартинга в режиме чартинга!";
+				txte3 = "Изменяет время авточартинга.";
+				txte4 = "Пропускать TitleState.";
+				txte5 = "Включайте/Выключайте обратный отчёт при возобновлении с паузы";
+
+				txtKey = "Измените управление.";
+
+				txtJud = "Измените точность.";
+				txtj1 = "Сколько миллисекунд находится в окне 'SICK' попадания";
+				txtj2 = "Сколько миллисекунд находится в окне 'GOOD' попадания";
+				txtj3 = "Сколько миллисекунд находится в окне 'BAD' попадания";
 		}
 
 		if (!isInPause)
@@ -346,18 +385,18 @@ class OptionsMenu extends FlxSubState
         		]),
 			new OptionCata(935, 40, "Extra", [
 				//new ResetSettings("Reset some your settings. This is irreversible!")
-				new ChangeLanguage("Change Language."),
-				new AutoSave("Turn AutoSaves your chating in Charting state."),
-				new AutoSaveInt("Change Chart AutoSave Interval."),
-                new SkipTitleOption("Skips TitleState."),
-			    new PauseCountDownOption("Toggle countdown after pressing 'Resume' in Pause Menu."),
+				new ChangeLanguage(txte1),
+				new AutoSave(txte2),
+				new AutoSaveInt(txte3),
+                new SkipTitleOption(txte4),
+			    new PauseCountDownOption(txte5),
 			]),
-			new OptionCata(-1, 125, "Editing Keybinds", [/* nothing here lol - PurSnake*/], true),
+			new OptionCata(-1, 125, txtKey, [/* nothing here lol - PurSnake*/], true),
 
-			new OptionCata(-1, 125, "Editing Judgements", [
-				new SickMSOption("How many milliseconds are in the SICK hit window"),
-				new GoodMsOption("How many milliseconds are in the GOOD hit window"),
-				new BadMsOption("How many milliseconds are in the BAD hit window"),
+			new OptionCata(-1, 125, txtJud, [
+				new SickMSOption(txtj1),
+				new GoodMsOption(txtj2),
+				new BadMsOption(txtj3),
 			], true)
 		];
 
