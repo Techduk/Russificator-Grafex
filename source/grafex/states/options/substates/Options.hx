@@ -483,9 +483,19 @@ class SkipTitleOption extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "TitleState Skipping: < " + (ClientPrefs.skipTitleState ? "Enabled" : "Disabled") + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "TitleState Skipping: < " + (ClientPrefs.skipTitleState ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "TitleState Пропуск: < " + (ClientPrefs.skipTitleState ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
 	}
 }
 
@@ -515,9 +525,19 @@ class KESustainsOption extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Kade Engine Sustains System: < " + (ClientPrefs.keSustains ? "Enabled" : "Disabled") + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Kade Engine Sustains System: < " + (ClientPrefs.keSustains ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Kade Engine Sustains Система: < " + (ClientPrefs.keSustains ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
 	}
 }
 
@@ -544,9 +564,19 @@ class ScoreZoom extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Score zomming in beats: < " + (ClientPrefs.scoreZoom ? "Enabled" : "Disabled") + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Score zomming in beats: < " + (ClientPrefs.scoreZoom ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Оценка, увеличивающаяся в ударах: < " + (ClientPrefs.scoreZoom ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
 	}
 }
 
@@ -577,9 +607,19 @@ class HideHud extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "HUD: < " + (!ClientPrefs.hideHud ? "Enabled" : "Disabled") + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "HUD: < " + (!ClientPrefs.hideHud ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Дисплей: < " + (!ClientPrefs.hideHud ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
 	}
 }
 
@@ -610,9 +650,19 @@ class MicedUpSusOption extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "MicedUp Sustains Filter: < " + (ClientPrefs.micedUpSus ? "Enabled" : "Disabled") + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "MicedUp Sustains Filter: < " + (ClientPrefs.micedUpSus ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "MicedUp Sustains Фильтр: < " + (ClientPrefs.micedUpSus ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
 	}
 }
 
@@ -637,9 +687,19 @@ class ShowCombo extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Combo Sprite: < " + (ClientPrefs.showCombo ? "Enabled" : "Disabled") + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Combo Sprite: < " + (ClientPrefs.showCombo ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Комбо спрайт: < " + (ClientPrefs.showCombo ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
 	}
 }
 
@@ -669,9 +729,19 @@ class BlurNotes extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Blured Notes: < " + (ClientPrefs.blurNotes ? "Enabled" : "Disabled") + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Blured Notes: < " + (ClientPrefs.blurNotes ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Размытие нот: < " + (ClientPrefs.blurNotes ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
 	}
 }
 
@@ -698,9 +768,19 @@ class AutoSave extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Chart AutoSave: < " + (ClientPrefs.chartautosave ? "Enabled" : "Disabled") + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Chart AutoSave: < " + (ClientPrefs.chartautosave ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Чарт АвтоСейф: < " + (ClientPrefs.chartautosave ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
 	}
 }
 
@@ -730,9 +810,19 @@ class AutoSaveInt extends Option
 		return true;
 	}
 
-	public override function getValue():String
+	var edite:String = "";
+
+	private override function updateDisplay():String
 	{
-		return "Chart AutoSave Interval: < " + ClientPrefs.chartautosaveInterval + " Minutes >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Chart AutoSave Interval: < " + ClientPrefs.chartautosaveInterval + " Minutes >";
+		
+			case "Russian":
+				edite = "Чарт АвтоСейф интервал: < " + ClientPrefs.chartautosaveInterval + " Минут/а/ы >";
+		}
+		return edite;
 	}
 }
 
@@ -758,9 +848,19 @@ class NoReset extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Reset Button: < " + (!ClientPrefs.noReset ? "Enabled" : "Disabled") + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Reset Button: < " + (!ClientPrefs.noReset ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Кнопка перезапуска: < " + (!ClientPrefs.noReset ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
 	}
 }
 
@@ -790,9 +890,19 @@ class DistractionsAndEffectsOption extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Distractions: < " + (!FlxG.save.data.distractions ? "off" : "on") + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Distractions: < " + (!FlxG.save.data.distractions ? "off" : "on") + " >";
+		
+			case "Russian":
+				edite = "Раздражители: < " + (!FlxG.save.data.distractions ? "Выкл" : "Вкл") + " >";
+		}
+		return edite;
 	}
 }
 
@@ -811,9 +921,19 @@ class Shouldcameramove extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Dynamic Camera: < " + (ClientPrefs.shouldcameramove ? "Enabled" : "Disabled") + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Dynamic Camera: < " + (ClientPrefs.shouldcameramove ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Динамическая камера: < " + (ClientPrefs.shouldcameramove ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
 	}
 }
 
@@ -832,9 +952,19 @@ class InstantRespawn extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Instant Respawn: < " + (ClientPrefs.instantRespawn ? "Enabled" : "Disabled") + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Instant Respawn: < " + (ClientPrefs.instantRespawn ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Моментальное возрождение: < " + (ClientPrefs.instantRespawn ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
 	}
 }
 
@@ -864,9 +994,19 @@ class FlashingLightsOption extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Flashing Lights: < " + (ClientPrefs.flashing ? "Enabled" : "Disabled") + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Flashing Lights: < " + (ClientPrefs.flashing ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Мигающие огни: < " + (ClientPrefs.flashing ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
 	}
 }
 
@@ -897,9 +1037,19 @@ class AntialiasingOption extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Antialiasing: < " + (ClientPrefs.globalAntialiasing ? "Enabled" : "Disabled") + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Antialiasing: < " + (ClientPrefs.globalAntialiasing ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Сглаживание < " + (ClientPrefs.globalAntialiasing ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
 	}
 
        /* function onChangeAntiAliasing()
@@ -935,10 +1085,20 @@ class MissSoundsOption extends Option
 		left();
 		return true;
 	}
+	
+	var edite:String = "";
 
 	private override function updateDisplay():String
 	{
-		return "Miss Sounds: < " + (ClientPrefs.playmisssounds ? "Enabled" : "Disabled") + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Miss Sounds: < " + (ClientPrefs.playmisssounds ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Звуки промаха: < " + (ClientPrefs.playmisssounds ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
 	}
 }
 
@@ -963,9 +1123,19 @@ class MissAnimsOption extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Miss Animations: < " + (ClientPrefs.playmissanims ? "Enabled" : "Disabled") + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Miss Animations: < " + (ClientPrefs.playmissanims ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Анимации промаха: < " + (ClientPrefs.playmissanims ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
 	}
 }
 
@@ -990,9 +1160,19 @@ class PauseCountDownOption extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "AfterPause CountDown: < " + (ClientPrefs.countdownpause ? "Enabled" : "Disabled") + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "AfterPause CountDown: < " + (ClientPrefs.countdownpause ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Обратный отсчет, после паузы : < " + (ClientPrefs.countdownpause ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
 	}
 }
 
@@ -1022,9 +1202,19 @@ class GreenScreenMode extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Green Screen mode: < " + (ClientPrefs.greenscreenmode ? "Enabled" : "Disabled") + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Green Screen mode: < " + (ClientPrefs.greenscreenmode ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Зелёный экран: < " + (ClientPrefs.greenscreenmode ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
 	}
 }
 
@@ -1087,10 +1277,20 @@ class FPSOption extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "FPS Counter: < " + (FPSMem.showFPS ? "Enabled" : "Disabled") + " >";
-	} 
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "FPS Counter: < " + (FPSMem.showFPS ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Счетчик кадров в секунду: < " + (FPSMem.showFPS ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
+	}
 }
 
 class MEMOption extends Option
@@ -1115,10 +1315,20 @@ class MEMOption extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Memory Counter: < " + (FPSMem.showMem ? "Enabled" : "Disabled") + " >";
-	} 
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Memory Counter: < " + (FPSMem.showMem ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Счетчик памяти в секунду: < " + (FPSMem.showMem ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
+	}
 }
 
 class AutoPause extends Option
@@ -1143,10 +1353,20 @@ class AutoPause extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "AutoPause: < " + (ClientPrefs.autoPause ? "Enabled" : "Disabled") + " >";
-	} 
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "AutoPause: < " + (ClientPrefs.autoPause ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "АвтоПауза: < " + (ClientPrefs.autoPause ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
+	}
 }
 
 class ShowSplashes extends Option
@@ -1170,10 +1390,20 @@ class ShowSplashes extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "NoteSplashes: < " + (ClientPrefs.noteSplashes ? "Enabled" : "Disabled") + " >";
-	} 
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "NoteSplashes: < " + (ClientPrefs.noteSplashes ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Всплеск нот: < " + (ClientPrefs.noteSplashes ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
+	}
 }
 class QualityLow extends Option
 {
@@ -1201,10 +1431,20 @@ class QualityLow extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Low Quality: < " + (ClientPrefs.lowQuality ? "Enabled" : "Disabled") + " >";
-	} 
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Low Quality: < " + (ClientPrefs.lowQuality ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Низкое качество: < " + (ClientPrefs.lowQuality ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
+	}
 }
 
 class FPSCapOption extends Option
@@ -1221,9 +1461,19 @@ class FPSCapOption extends Option
 		return false;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "FPS Cap: < " + ClientPrefs.framerate + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "FPS Cap: < " + ClientPrefs.framerate + " >";
+		
+			case "Russian":
+				edite = "Ограничение FPS: < " + ClientPrefs.framerate + " >";
+		}
+		return edite;
 	}
 
 	override function right():Bool
@@ -1293,9 +1543,19 @@ class HideOppStrumsOption extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Opponent Strums: < " + (!ClientPrefs.hideOpponenStrums ? "Enabled" : "Disabled") + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Opponent Strums: < " + (!ClientPrefs.hideOpponenStrums ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Ноты оппонента: < " + (!ClientPrefs.hideOpponenStrums ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
 	}
 }
 
@@ -1355,9 +1615,19 @@ class OffsetThing extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Note offset: < " + Utils.truncateFloat(ClientPrefs.noteOffset, 0) + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Note offset: < " + Utils.truncateFloat(ClientPrefs.noteOffset, 0) + " >";
+		
+			case "Russian":
+				edite = "Точность нот: < " + Utils.truncateFloat(ClientPrefs.noteOffset, 0) + " >";
+		}
+		return edite;
 	}
 
 	public override function getValue():String
@@ -1392,9 +1662,19 @@ class CamZoomOption extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Camera Zooming: < " + (ClientPrefs.camZooms ? "Enabled" : "Disabled") + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Camera Zooming: < " + (ClientPrefs.camZooms ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Приближение камеры: < " + (ClientPrefs.camZooms ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
 	}
 }
 
