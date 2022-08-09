@@ -12,6 +12,7 @@ import flixel.FlxG;
 import openfl.display.FPS;
 import flixel.graphics.FlxGraphic;
 import openfl.Lib;
+import flixel.FlxSubState;
 
 class Option
 {
@@ -76,13 +77,27 @@ class Option
 
 class DFJKOption extends Option
 {
-	public function new()
+	var notPause:String = "";
+	var somElse:String = "";
+
+	public override function new()
 	{
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				notPause = "This option cannot be toggled in the pause menu.";
+				somElse = "Edit your keybindings";
+			
+			case "Russian":
+				notPause = "Эта опция не может быть изменена в паузе.";
+				somElse = "Измени своё управление";
+		}
+
 		super();
                 if (OptionsMenu.isInPause)
-			description = "This option cannot be toggled in the pause menu.";
+			description = notPause;
 		else
-		description = "Edit your keybindings";
+		description = somElse;
 	}
 
 	public override function press():Bool
@@ -104,13 +119,27 @@ class DFJKOption extends Option
 
 class NotesOption extends Option
 {
-	public function new()
+	var notPause:String = "";
+	var somElse:String = "";
+
+	public override function new()
 	{
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				notPause = "This option cannot be toggled in the pause menu.";
+				somElse = "Edit notes colors";
+			
+			case "Russian":
+				notPause = "Эта опция не может быть изменена в паузе.";
+				somElse = "Измени цвет нот";
+		}
+
 		super();
                 if (OptionsMenu.isInPause)
-			description = "This option cannot be toggled in the pause menu.";
+			description = notPause;
 		else
-		description = "Edit notes colors";
+		description = somElse;
 	}
 
 	public override function press():Bool
@@ -132,13 +161,27 @@ class NotesOption extends Option
 
 class Customizeption extends Option
 {
-	public function new()
+	var notPause:String = "";
+	var somElse:String = "";
+
+	public override function new()
 	{
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				notPause = "This option cannot be toggled in the pause menu.";
+				somElse = "Edit elements positions / beat offset";
+			
+			case "Russian":
+				notPause = "Эта опция не может быть изменена в паузе.";
+				somElse = "Изменение положения элементов / смещение ударов";
+		}
+
 		super();
                  if (OptionsMenu.isInPause)
-			description = "This option cannot be toggled in the pause menu.";
+			description = notPause;
 		else
-		description = "Edit elements positions / beat offset";
+		description = somElse;
 	}
 
 	public override function press():Bool
@@ -161,10 +204,21 @@ class Customizeption extends Option
 
 class SickMSOption extends Option
 {
+	var rlol:String = "";
+
 	public function new(desc:String)
 	{
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				rlol =  " (Press R to reset)";
+			
+			case "Russian":
+				rlol = " (Нажми R чтоб вернуть как было)";
+		}
+
 		super();
-		description = desc + " (Press R to reset)";
+		description = desc + rlol;
 		acceptType = true;
 	}
 
@@ -198,10 +252,21 @@ class SickMSOption extends Option
 
 class GoodMsOption extends Option
 {
+	var rlol:String = "";
+
 	public function new(desc:String)
 	{
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				rlol =  " (Press R to reset)";
+			
+			case "Russian":
+				rlol = " (Нажми R чтоб вернуть как было)";
+		}
+
 		super();
-		description = desc + " (Press R to reset)";
+		description = desc + rlol;
 		acceptType = true;
 	}
 
@@ -235,10 +300,21 @@ class GoodMsOption extends Option
 
 class BadMsOption extends Option
 {
+	var rlol:String = "";
+
 	public function new(desc:String)
 	{
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				rlol =  " (Press R to reset)";
+			
+			case "Russian":
+				rlol = " (Нажми R чтоб вернуть как было)";
+		}
+
 		super();
-		description = desc + " (Press R to reset)";
+		description = desc + rlol;
 		acceptType = true;
 	}
 
@@ -333,9 +409,19 @@ class DownscrollOption extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Downscroll: < " + (ClientPrefs.downScroll ? "Enabled" : "Disabled") + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Downscroll: < " + (ClientPrefs.downScroll ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Нижний скролл (Downscroll): < " + (ClientPrefs.downScroll ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
 	}
 }
 
@@ -360,9 +446,19 @@ class GhostTapOption extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Ghost Tapping: < " + (ClientPrefs.ghostTapping ? "Enabled" : "Disabled") + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "GhostTapping: < " + (ClientPrefs.ghostTapping ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Призрачные нажатия: < " + (ClientPrefs.ghostTapping ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
 	}
 }
 
@@ -953,9 +1049,19 @@ class Judgement extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Edit Judgements";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Edit Judgements";
+			
+			case "Russian":
+				edite = "Изменить точность";
+		}
+		return edite;
 	}
 }
 

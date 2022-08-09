@@ -182,23 +182,7 @@ class OptionsMenu extends FlxSubState
 	var txtj3:String = "";
 /*
 	var txt1:String = "";
-	var txt2:String = "";
-	var txt3:String = "";
-	var txt4:String = "";
-	var txt5:String = "";
-	var txt6:String = "";
-	var txt7:String = "";
-	var txt8:String = "";
-	var txt9:String = "";
-	var txt10:String = "";
-	var txt11:String = "";
-	var txt12:String = "";
-	var txt13:String = "";
-	var txt14:String = "";
-	var txt15:String = "";
-	var txt16:String = "";
-	var txt17:String = "";
-	var txt18:String = ""; */
+*/
 
 	override function create()
 	{
@@ -383,7 +367,7 @@ class OptionsMenu extends FlxSubState
 				new Imagepersist(txtm10),
 				new GreenScreenMode(txtm11),
         		]),
-			new OptionCata(935, 40, "Extra", [
+			new OptionCata(935, 40, txtExtra, [
 				//new ResetSettings("Reset some your settings. This is irreversible!")
 				new ChangeLanguage(txte1),
 				new AutoSave(txte2),
