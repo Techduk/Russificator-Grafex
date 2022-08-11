@@ -111,9 +111,19 @@ class DFJKOption extends Option
              		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Edit Keybindings";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Edit Keybindings";
+		
+			case "Russian":
+				edite = "Изменить управление";
+		}
+		return edite;
 	}
 }
 
@@ -153,9 +163,19 @@ class NotesOption extends Option
              		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Edit Notes Colors";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Edit Notes Colors";
+		
+			case "Russian":
+				edite = "Изменить цвет нот";
+		}
+		return edite;
 	}
 }
 
@@ -196,9 +216,19 @@ class Customizeption extends Option
 	          		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Edit elements positions and beat offset";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Edit elements positions and beat offset";
+		
+			case "Russian":
+				edite = "Редактирование положения элементов и смещения ритма";
+		}
+		return edite;
 	}
 }
 
@@ -385,13 +415,24 @@ class BadMsOption extends Option
 
 class DownscrollOption extends Option
 {
+	var notPause:String = "";
+
 	public function new(desc:String)
 	{
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				notPause = "This option cannot be toggled in the pause menu.";
+			
+			case "Russian":
+				notPause = "Эта опция не может быть изменена в паузе.";
+		}
+
 		super();
-		if (OptionsMenu.isInPause)
-			description = "This option cannot be toggled in the pause menu.";
-		else
-			description = desc;
+            if (OptionsMenu.isInPause)
+				description = notPause;
+			else
+				description = desc;
 	}
 
 	public override function left():Bool
@@ -501,13 +542,24 @@ class SkipTitleOption extends Option
 
 class KESustainsOption extends Option
 {
+	var notPause:String = "";
+
 	public function new(desc:String)
 	{
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				notPause = "This option cannot be toggled in the pause menu.";
+			
+			case "Russian":
+				notPause = "Эта опция не может быть изменена в паузе.";
+		}
+
 		super();
-         if (OptionsMenu.isInPause)
-			description = "This option cannot be toggled in the pause menu.";
-		else
-		description = desc;
+            if (OptionsMenu.isInPause)
+				description = notPause;
+			else
+				description = desc;
 	}
 
 	public override function left():Bool
@@ -582,14 +634,24 @@ class ScoreZoom extends Option
 
 class HideHud extends Option
 {
+	var notPause:String = "";
+
 	public function new(desc:String)
 	{
-		super();
-              if (OptionsMenu.isInPause)
-			description = "This option cannot be toggled in the pause menu.";
-		else
-			description = desc;
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				notPause = "This option cannot be toggled in the pause menu.";
+			
+			case "Russian":
+				notPause = "Эта опция не может быть изменена в паузе.";
+		}
 
+		super();
+            if (OptionsMenu.isInPause)
+				description = notPause;
+			else
+				description = desc;
 	}
 
 	public override function left():Bool
@@ -625,14 +687,24 @@ class HideHud extends Option
 
 class MicedUpSusOption extends Option
 {
+	var notPause:String = "";
+
 	public function new(desc:String)
 	{
-		super();
-              if (OptionsMenu.isInPause)
-			description = "This option cannot be toggled in the pause menu.";
-		else
-			description = desc;
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				notPause = "This option cannot be toggled in the pause menu.";
+			
+			case "Russian":
+				notPause = "Эта опция не может быть изменена в паузе.";
+		}
 
+		super();
+            if (OptionsMenu.isInPause)
+				description = notPause;
+			else
+				description = desc;
 	}
 
 	public override function left():Bool
@@ -705,13 +777,24 @@ class ShowCombo extends Option
 
 class BlurNotes extends Option
 {
+	var notPause:String = "";
+
 	public function new(desc:String)
 	{
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				notPause = "This option cannot be toggled in the pause menu.";
+			
+			case "Russian":
+				notPause = "Эта опция не может быть изменена в паузе.";
+		}
+
 		super();
-              if (OptionsMenu.isInPause)
-			description = "This option cannot be toggled in the pause menu.";
-		else
-			description = desc;
+            if (OptionsMenu.isInPause)
+				description = notPause;
+			else
+				description = desc;
 	}
 
 	public override function left():Bool
@@ -866,13 +949,24 @@ class NoReset extends Option
 
 class DistractionsAndEffectsOption extends Option
 {
+	var notPause:String = "";
+
 	public function new(desc:String)
 	{
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				notPause = "This option cannot be toggled in the pause menu.";
+			
+			case "Russian":
+				notPause = "Эта опция не может быть изменена в паузе.";
+		}
+
 		super();
-		if (OptionsMenu.isInPause)
-			description = "This option cannot be toggled in the pause menu.";
-		else
-			description = desc;
+            if (OptionsMenu.isInPause)
+				description = notPause;
+			else
+				description = desc;
 	}
 
 	public override function left():Bool
@@ -908,10 +1002,24 @@ class DistractionsAndEffectsOption extends Option
 
 class Shouldcameramove extends Option
 {
+	var notPause:String = "";
+
 	public function new(desc:String)
 	{
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				notPause = "This option cannot be toggled in the pause menu.";
+			
+			case "Russian":
+				notPause = "Эта опция не может быть изменена в паузе.";
+		}
+
 		super();
-		description = desc;
+            if (OptionsMenu.isInPause)
+				description = notPause;
+			else
+				description = desc;
 	}
 
 	public override function press():Bool
@@ -939,11 +1047,26 @@ class Shouldcameramove extends Option
 
 class InstantRespawn extends Option
 {
+	var notPause:String = "";
+
 	public function new(desc:String)
 	{
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				notPause = "This option cannot be toggled in the pause menu.";
+			
+			case "Russian":
+				notPause = "Эта опция не может быть изменена в паузе.";
+		}
+
 		super();
-		description = desc;
+            if (OptionsMenu.isInPause)
+				description = notPause;
+			else
+				description = desc;
 	}
+
 
 	public override function press():Bool
 	{
@@ -970,13 +1093,24 @@ class InstantRespawn extends Option
 
 class FlashingLightsOption extends Option
 {
+	var notPause:String = "";
+
 	public function new(desc:String)
 	{
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				notPause = "This option cannot be toggled in the pause menu.";
+			
+			case "Russian":
+				notPause = "Эта опция не может быть изменена в паузе.";
+		}
+
 		super();
-		if (OptionsMenu.isInPause)
-			description = "This option cannot be toggled in the pause menu.";
-		else
-			description = desc;
+            if (OptionsMenu.isInPause)
+				description = notPause;
+			else
+				description = desc;
 	}
 
 	public override function left():Bool
@@ -1012,13 +1146,24 @@ class FlashingLightsOption extends Option
 
 class AntialiasingOption extends Option
 {
+	var notPause:String = "";
+
 	public function new(desc:String)
 	{
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				notPause = "This option cannot be toggled in the pause menu.";
+			
+			case "Russian":
+				notPause = "Эта опция не может быть изменена в паузе.";
+		}
+
 		super();
-		if (OptionsMenu.isInPause)
-			description = "This option cannot be toggled in the pause menu.";
-		else
-			description = desc;
+            if (OptionsMenu.isInPause)
+				description = notPause;
+			else
+				description = desc;
 	}
 
 	public override function left():Bool
@@ -1178,13 +1323,24 @@ class PauseCountDownOption extends Option
 
 class GreenScreenMode extends Option
 {
+	var notPause:String = "";
+
 	public function new(desc:String)
 	{
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				notPause = "This option cannot be toggled in the pause menu.";
+			
+			case "Russian":
+				notPause = "Эта опция не может быть изменена в паузе.";
+		}
+
 		super();
-		if (OptionsMenu.isInPause)
-			description = "This option cannot be toggled in the pause menu.";
-		else
-			description = desc;
+            if (OptionsMenu.isInPause)
+				description = notPause;
+			else
+				description = desc;
 	}
 
 	public override function left():Bool
@@ -1220,14 +1376,24 @@ class GreenScreenMode extends Option
 
 class Judgement extends Option
 {
+	var notPause:String = "";
+
 	public function new(desc:String)
 	{
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				notPause = "This option cannot be toggled in the pause menu.";
+			
+			case "Russian":
+				notPause = "Эта опция не может быть изменена в паузе.";
+		}
+
 		super();
-		if (OptionsMenu.isInPause)
-			description = "This option cannot be toggled in the pause menu.";
-		else
-			description = desc;
-		acceptValues = true;
+            if (OptionsMenu.isInPause)
+				description = notPause;
+			else
+				description = desc;
 	}
 
 	public override function press():Bool
@@ -1407,13 +1573,24 @@ class ShowSplashes extends Option
 }
 class QualityLow extends Option
 {
+	var notPause:String = "";
+
 	public function new(desc:String)
 	{
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				notPause = "This option cannot be toggled in the pause menu.";
+			
+			case "Russian":
+				notPause = "Эта опция не может быть изменена в паузе.";
+		}
+
 		super();
-              if (OptionsMenu.isInPause)
-			description = "This option cannot be toggled in the pause menu.";
-		else
-			description = desc;
+            if (OptionsMenu.isInPause)
+				description = notPause;
+			else
+				description = desc;
 	}
 
 	public override function left():Bool
@@ -1588,13 +1765,24 @@ class OffsetMenu extends Option
 }
 class OffsetThing extends Option
 {
+	var notPause:String = "";
+
 	public function new(desc:String)
 	{
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				notPause = "This option cannot be toggled in the pause menu.";
+			
+			case "Russian":
+				notPause = "Эта опция не может быть изменена в паузе.";
+		}
+
 		super();
-		if (OptionsMenu.isInPause)
-			description = "This option cannot be toggled in the pause menu.";
-		else
-			description = desc;
+            if (OptionsMenu.isInPause)
+				description = notPause;
+			else
+				description = desc;
 	}
 
 	public override function left():Bool
@@ -1638,13 +1826,24 @@ class OffsetThing extends Option
 
 class CamZoomOption extends Option
 {
+	var notPause:String = "";
+
 	public function new(desc:String)
 	{
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				notPause = "This option cannot be toggled in the pause menu.";
+			
+			case "Russian":
+				notPause = "Эта опция не может быть изменена в паузе.";
+		}
+
 		super();
-		if (OptionsMenu.isInPause)
-			description = "This option cannot be toggled in the pause menu.";
-		else
-			description = desc;
+            if (OptionsMenu.isInPause)
+				description = notPause;
+			else
+				description = desc;
 	}
 
 	public override function left():Bool
@@ -1680,13 +1879,24 @@ class CamZoomOption extends Option
 
 class JudgementCounter extends Option
 {
+	var notPause:String = "";
+
 	public function new(desc:String)
 	{
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				notPause = "This option cannot be toggled in the pause menu.";
+			
+			case "Russian":
+				notPause = "Эта опция не может быть изменена в паузе.";
+		}
+
 		super();
-		if (OptionsMenu.isInPause)
-			description = "This option cannot be toggled in the pause menu.";
-		else
-			description = desc;
+            if (OptionsMenu.isInPause)
+				description = notPause;
+			else
+				description = desc;
 	}
 
 	public override function left():Bool
@@ -1704,9 +1914,19 @@ class JudgementCounter extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Judgement Counter: < " + (ClientPrefs.showjud ? "Enabled" : "Disabled") + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Judgement Counter: < " + (ClientPrefs.showjud ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Счётчик точности: < " + (ClientPrefs.showjud ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
 	}
 }
 
@@ -1732,21 +1952,42 @@ class Imagepersist extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Persistent Cached Data: < " + (ClientPrefs.imagesPersist ? "Enabled" : "Disabled") + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Persistent Cached Data: < " + (ClientPrefs.imagesPersist ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Постоянное Кэшированные Данные: < " + (ClientPrefs.imagesPersist ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
 	}
 }
 
 class ControllerMode extends Option
 {
+	var notPause:String = "";
+
 	public function new(desc:String)
 	{
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				notPause = "This option cannot be toggled in the pause menu.";
+			
+			case "Russian":
+				notPause = "Эта опция не может быть изменена в паузе.";
+		}
+
 		super();
-		if (OptionsMenu.isInPause)
-			description = "This option cannot be toggled in the pause menu.";
-		else
-			description = desc;
+            if (OptionsMenu.isInPause)
+				description = notPause;
+			else
+				description = desc;
 	}
 
 	public override function left():Bool
@@ -1764,21 +2005,42 @@ class ControllerMode extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Controller Mode: < " + (ClientPrefs.controllerMode ? "Enabled" : "Disabled") + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Controller Mode: < " + (ClientPrefs.controllerMode ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Режим контроллера: < " + (ClientPrefs.controllerMode ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
 	}
 }
 
 class MiddleScrollOption extends Option
 {
+	var notPause:String = "";
+
 	public function new(desc:String)
 	{
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				notPause = "This option cannot be toggled in the pause menu.";
+			
+			case "Russian":
+				notPause = "Эта опция не может быть изменена в паузе.";
+		}
+
 		super();
-		if (OptionsMenu.isInPause)
-			description = "This option cannot be toggled in the pause menu.";
-		else
-			description = desc;
+            if (OptionsMenu.isInPause)
+				description = notPause;
+			else
+				description = desc;
 	}
 
 	public override function left():Bool
@@ -1796,22 +2058,43 @@ class MiddleScrollOption extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Middle Scroll: < " + (ClientPrefs.middleScroll ? "Enabled" : "Disabled") + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Middle Scroll: < " + (ClientPrefs.middleScroll ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Серединный скролл (MiddleScroll): < " + (ClientPrefs.middleScroll ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
 	}
 }
 
 
 class NoteskinOption extends Option
 {
+	var notPause:String = "";
+
 	public function new(desc:String)
 	{
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				notPause = "This option cannot be toggled in the pause menu.";
+			
+			case "Russian":
+				notPause = "Эта опция не может быть изменена в паузе.";
+		}
+
 		super();
-		if (OptionsMenu.isInPause)
-			description = "This option cannot be toggled in the pause menu.";
-		else
-			description = desc;
+            if (OptionsMenu.isInPause)
+				description = notPause;
+			else
+				description = desc;
 	}
 
 	public override function left():Bool
@@ -1838,9 +2121,19 @@ class NoteskinOption extends Option
 		return true;
 	}
 
-	public override function getValue():String
+	var edite:String = "";
+
+	private override function updateDisplay():String
 	{
-		return "Current Noteskin: < " + OptionsHelpers.getNoteskinByID(ClientPrefs.noteSkinNum) + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Current Noteskin: < " + OptionsHelpers.getNoteskinByID(ClientPrefs.noteSkinNum) + " >";
+		
+			case "Russian":
+				edite = "Выбранные ноты: < " + OptionsHelpers.getNoteskinByID(ClientPrefs.noteSkinNum) + " >";
+		}
+		return edite;
 	}
 }
 
@@ -1872,9 +2165,19 @@ class AccTypeOption extends Option
 		return true;
 	}
 
-	public override function getValue():String
+	var edite:String = "";
+
+	private override function updateDisplay():String
 	{
-		return "Current Accuracy Type: < " + OptionsHelpers.getAccTypeID(ClientPrefs.ratingSystemNum) + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Current Accuracy Type: < " + OptionsHelpers.getAccTypeID(ClientPrefs.ratingSystemNum) + " >";
+		
+			case "Russian":
+				edite = "Текущий Тип точности: < " + OptionsHelpers.getAccTypeID(ClientPrefs.ratingSystemNum) + " >";
+		}
+		return edite;
 	}
 }
 
@@ -1908,9 +2211,19 @@ class ColorBlindOption extends Option
 		return true;
 	}
 
-	public override function getValue():String
+	var edite:String = "";
+
+	private override function updateDisplay():String
 	{
-		return "Color Blindness Type: < " + OptionsHelpers.getColorBlindByID(ClientPrefs.ColorBlindTypeNum) + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Color Blindness Type: < " + OptionsHelpers.getColorBlindByID(ClientPrefs.ColorBlindTypeNum) + " >";
+		
+			case "Russian":
+				edite = "Тип дальтонизма: < " + OptionsHelpers.getColorBlindByID(ClientPrefs.ColorBlindTypeNum) + " >";
+		}
+		return edite;
 	}
 }
 
@@ -1942,21 +2255,42 @@ class IconBop extends Option
 		return true;
 	}
 
-	public override function getValue():String
+	var edite:String = "";
+
+	private override function updateDisplay():String
 	{
-		return "Icon bopping type: < " + OptionsHelpers.getIconBopByID(ClientPrefs.hliconbopNum) + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Icon bopping type: < " + OptionsHelpers.getIconBopByID(ClientPrefs.hliconbopNum) + " >";
+		
+			case "Russian":
+				edite = "Выбранный танец иконок: < " + OptionsHelpers.getIconBopByID(ClientPrefs.hliconbopNum) + " >";
+		}
+		return edite;
 	}
 }
 
 class TimeBarType extends Option
 {
+	var notPause:String = "";
+
 	public function new(desc:String)
 	{
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				notPause = "This option cannot be toggled in the pause menu.";
+			
+			case "Russian":
+				notPause = "Эта опция не может быть изменена в паузе.";
+		}
+
 		super();
-		if (OptionsMenu.isInPause)
-			description = "This option cannot be toggled in the pause menu.";
-		else
-			description = desc;
+            if (OptionsMenu.isInPause)
+				description = notPause;
+			else
+				description = desc;
 	}
 
 	public override function left():Bool
@@ -1983,21 +2317,42 @@ class TimeBarType extends Option
 		return true;
 	}
 
-	public override function getValue():String
+	var edite:String = "";
+
+	private override function updateDisplay():String
 	{
-		return "Time bar type: < " + OptionsHelpers.getTimeBarByID(ClientPrefs.timeBarTypeNum) + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Time bar type: < " + OptionsHelpers.getTimeBarByID(ClientPrefs.timeBarTypeNum) + " >";
+		
+			case "Russian":
+				edite = "Тип временной шкалы: < " + OptionsHelpers.getTimeBarByID(ClientPrefs.timeBarTypeNum) + " >";
+		}
+		return edite;
 	}
 }
 
 class HealthBarOption extends Option
 {
+	var notPause:String = "";
+
 	public function new(desc:String)
 	{
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				notPause = "This option cannot be toggled in the pause menu.";
+			
+			case "Russian":
+				notPause = "Эта опция не может быть изменена в паузе.";
+		}
+
 		super();
-		if (OptionsMenu.isInPause)
-			description = "This option cannot be toggled in the pause menu.";
-		else
-			description = desc;
+            if (OptionsMenu.isInPause)
+				description = notPause;
+			else
+				description = desc;
 	}
 
 	public override function left():Bool
@@ -2015,22 +2370,43 @@ class HealthBarOption extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Health Bar: < " + (ClientPrefs.visibleHealthbar ? "Enabled" : "Disabled") + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Health Bar: < " + (ClientPrefs.visibleHealthbar ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Полоса здоровья: < " + (ClientPrefs.visibleHealthbar ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
 	}
 }
 
 class HealthBarAlpha extends Option
 {
+	var notPause:String = "";
+
 	public function new(desc:String)
 	{
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				notPause = "This option cannot be toggled in the pause menu.";
+			
+			case "Russian":
+				notPause = "Эта опция не может быть изменена в паузе.";
+		}
+
 		super();
-		if (OptionsMenu.isInPause)
-			description = "This option cannot be toggled in the pause menu.";
-		else
-			description = desc;
-		acceptValues = true;
+            if (OptionsMenu.isInPause)
+				description = notPause;
+			else
+				description = desc;
+			acceptValues = true;
 	}
 
 	override function right():Bool
@@ -2055,24 +2431,45 @@ class HealthBarAlpha extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
+	{
+		switch(ClientPrefs.languageName)
 		{
-			return "Healthbar Transparceny: < " + Utils.truncateFloat(ClientPrefs.healthBarAlpha, 1) + " >";
+			case 'English':
+				edite = "Healthbar Transparceny: < " + Utils.truncateFloat(ClientPrefs.healthBarAlpha, 1) + " >";
+		
+			case "Russian":
+				edite = "Прозрачность полосы здоровья: < " + Utils.truncateFloat(ClientPrefs.healthBarAlpha, 1) + " >";
 		}
-	
+		return edite;
+	}
 }
 
 class SustainsAlpha extends Option
 {
+	var notPause:String = "";
+
 	public function new(desc:String)
 	{
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				notPause = "This option cannot be toggled in the pause menu.";
+			
+			case "Russian":
+				notPause = "Эта опция не может быть изменена в паузе.";
+		}
+
 		super();
-		if (OptionsMenu.isInPause)
-			description = "This option cannot be toggled in the pause menu.";
-		else
-			description = desc;
-		acceptValues = true;
+            if (OptionsMenu.isInPause)
+				description = notPause;
+			else
+				description = desc;
+			acceptValues = true;
 	}
+
 
 	override function right():Bool
 	{
@@ -2097,11 +2494,20 @@ class SustainsAlpha extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
+	{
+		switch(ClientPrefs.languageName)
 		{
-			return "Sustain Notes Transparceny: < " + Utils.truncateFloat(ClientPrefs.susTransper, 1) + " >";
+			case 'English':
+				edite = "Sustain Notes Transparceny: < " + Utils.truncateFloat(ClientPrefs.susTransper, 1) + " >";
+		
+			case "Russian":
+				edite = "Прозрачность нот: < " + Utils.truncateFloat(ClientPrefs.susTransper, 1) + " >";
 		}
-	
+		return edite;
+	}
 }
 
 class HitSoundOption extends Option
@@ -2113,9 +2519,19 @@ class HitSoundOption extends Option
 		acceptValues = true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "HitSound volume: < " + Utils.truncateFloat(ClientPrefs.hsvol, 1) + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "HitSound volume: < " + Utils.truncateFloat(ClientPrefs.hsvol, 1) + " >";
+		
+			case "Russian":
+				edite = "Громкость звука нажатия: < " + Utils.truncateFloat(ClientPrefs.hsvol, 1) + " >";
+		}
+		return edite;
 	}
 
 	override function right():Bool
@@ -2140,19 +2556,41 @@ class HitSoundOption extends Option
 
 class LaneUnderlayOption extends Option
 {
+	var notPause:String = "";
+
 	public function new(desc:String)
 	{
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				notPause = "This option cannot be toggled in the pause menu.";
+			
+			case "Russian":
+				notPause = "Эта опция не может быть изменена в паузе.";
+		}
+
 		super();
-		if (OptionsMenu.isInPause)
-			description = "This option cannot be toggled in the pause menu.";
-		else
-			description = desc;
-		acceptValues = true;
+            if (OptionsMenu.isInPause)
+				description = notPause;
+			else
+				description = desc;
+			acceptValues = true;
 	}
+
+
+	var edite:String = "";
 
 	private override function updateDisplay():String
 	{
-		return "Lane Transparceny: < " + Utils.truncateFloat(ClientPrefs.underdelayalpha, 1) + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Lane Transparceny: < " + Utils.truncateFloat(ClientPrefs.underdelayalpha, 1) + " >";
+		
+			case "Russian":
+				edite = "Прозрачность фона: < " + Utils.truncateFloat(ClientPrefs.underdelayalpha, 1) + " >";
+		}
+		return edite;
 	}
 
 	override function right():Bool
@@ -2200,9 +2638,19 @@ class SongNameOption extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "SongName Displayed: < " + (ClientPrefs.songNameDisplay ? "Enabled" : "Disabled") + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "SongName Displayed: < " + (ClientPrefs.songNameDisplay ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Показ название песни: < " + (ClientPrefs.songNameDisplay ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
 	}
 }
 
@@ -2227,11 +2675,22 @@ class VintageOption extends Option
 		return true;
 	}
 
+	var edite:String = "";
+
 	private override function updateDisplay():String
 	{
-		return "Vintage: < " + (ClientPrefs.vintageOnGame ? "Enabled" : "Disabled") + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Vintage: < " + (ClientPrefs.vintageOnGame ? "Enabled" : "Disabled") + " >";
+		
+			case "Russian":
+				edite = "Винтаж: < " + (ClientPrefs.vintageOnGame ? "Вкл" : "Выкл") + " >";
+		}
+		return edite;
 	}
 }
+
 class ChangeLanguage extends Option
 {
 	public function new(desc:String)
@@ -2260,9 +2719,19 @@ class ChangeLanguage extends Option
 		return true;
 	}
 
-	public override function getValue():String
+	var edite:String = "";
+
+	private override function updateDisplay():String
 	{
-		return "Language: < " + OptionsHelpers.getLanguageByID(ClientPrefs.languageNameNum) + " >";
+		switch(ClientPrefs.languageName)
+		{
+			case 'English':
+				edite = "Language: < " + OptionsHelpers.getLanguageByID(ClientPrefs.languageNameNum) + " >";
+		
+			case "Russian":
+				edite = "Язык: < " + OptionsHelpers.getLanguageByID(ClientPrefs.languageNameNum) + " >";
+		}
+		return edite;
 	}
 }
 

@@ -127,6 +127,10 @@ class OptionsMenu extends FlxSubState
 	public var descText:FlxText;
 	public var descBack:FlxSprite;
 
+	var pressD:String = "";
+
+	var selectC:String = "";
+
 	var txtGameplay:String = "";
 	var txtg1:String = "";
 	var txtg2:String = "";
@@ -190,6 +194,10 @@ class OptionsMenu extends FlxSubState
 		switch(ClientPrefs.languageName)
 		{
 			case 'English':
+				pressD = "Press DELETE to reset settings";
+
+				selectC = "Please select a category";
+
 				txtGameplay = "Gameplay"; //Gameplay
 				txtg1 = "Adds 'hitsound' on note hits.";
 				txtg2 = "Toggle counting pressing a directional input when no arrow is there as a miss.";
@@ -249,6 +257,10 @@ class OptionsMenu extends FlxSubState
 				txtj3 = "How many milliseconds are in the BAD hit window";
 
 			case "Russian":
+				pressD = "Нажмите DELETE чтоб сбросить настройки";
+
+				selectC = "Пожалуйста, выберите категорию";
+
 				txtGameplay = "Геймплей"; //Геймплей
 				txtg1 = "Добавляет звук при нажатии ноты.";
 				txtg2 = "Если включено, не реагирует на промахи, когда стрелка отсутствует.";
@@ -265,7 +277,7 @@ class OptionsMenu extends FlxSubState
 				txta3 = "Измени танец иконок.";
 				txta4 = "Показывает название песни на экране.";
 				txta5 = "Поставь свои ноты по середине или справа (Мидл скролл).";
-				txta6 = "Показывать/спрятать ноты опонента. (ПЕРЕЗАПУСК ПЕСНИ)";
+				txta6 = "Показывать/спрятать ноты опонента. (НУЖЕН ПЕРЕЗАПУСК ПЕСНИ)";
 				txta7 = "Если вы не нажали на ноту, то звук не будет издаваться.";
 				txta8 = "Отключает анимации промаха.";
 				txta9 = "Показывать партеклы при нажатии на SICK.";
@@ -443,7 +455,7 @@ class OptionsMenu extends FlxSubState
 
 		selectedOption = selectedCat.options[0];
 
-		restoreSettingsText = new FlxText (62, 680, FlxG.width, 'Press DELETE to reset settings');
+		restoreSettingsText = new FlxText (62, 680, FlxG.width, pressD);
 		restoreSettingsText.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		restoreSettingsText.scrollFactor.set();
 		restoreSettingsText.borderSize = 2;
@@ -626,7 +638,7 @@ class OptionsMenu extends FlxSubState
 		{
 			if (isInCat)
 			{
-				descText.text = "Please select a category";
+				descText.text = selectC;
 				if (right)
 				{
 					FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
