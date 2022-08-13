@@ -48,6 +48,8 @@ class DialogueEditorState extends MusicBeatState
 	var defaultLine:DialogueLine;
 	var dialogueFile:DialogueFile = null;
 
+	public static var defultTxt:String;
+
 	override function create() {
 		persistentUpdate = persistentDraw = true;
 		FlxG.camera.bgColor = FlxColor.fromHSL(0, 0, 0.5);
@@ -101,6 +103,7 @@ class DialogueEditorState extends MusicBeatState
 		animText.setFormat(Paths.font("vcr.ttf"), 24, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		animText.scrollFactor.set();
 		add(animText);
+
 		changeText();
 		super.create();
 	}
@@ -228,7 +231,7 @@ class DialogueEditorState extends MusicBeatState
 		}
 	}
 
-	private static var DEFAULT_TEXT:String = "coolswag";
+	private static var DEFAULT_TEXT:String = 'coolswag';
 	private static var DEFAULT_SPEED:Float = 0.05;
 	private static var DEFAULT_BUBBLETYPE:String = "normal";
 	function reloadText(speed:Float = 0.05) {
